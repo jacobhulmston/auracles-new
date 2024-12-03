@@ -244,7 +244,7 @@ export default function Home() {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUpVariants}
         >
-          It's time we get this sorted, once and for all!
+          It&apos;s time we get this sorted, once and for all!
         </motion.p>
       </section>
       <div className="space-y-16 my-16">
