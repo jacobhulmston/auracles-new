@@ -6,9 +6,7 @@ const config = {
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -32,7 +30,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        rounded: ['OpenRunde"', "sans-serif"],
+        rounded: ["OpenRunde", "sans-serif"],
       },
       backgroundImage: {
         "radial-gradient": "radial-gradient(circle, var(--tw-gradient-stops))",
@@ -149,7 +147,7 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    function ({ addUtilities }: any) {
+    function ({ addUtilities }: { addUtilities: (utilities: object) => void }) {
       const newUtilities = {
         ".scrollbar-hide": {
           "-ms-overflow-style": "none",
