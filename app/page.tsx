@@ -134,7 +134,7 @@ export default function Home() {
 
       {/* Hero Section - removed circles from here */}
       <section className="flex items-center justify-center relative">
-        <div className="flex flex-col items-center justify-between h-full py-20 max-w-[500px] mx-auto relative">
+        <div className="flex flex-col items-center justify-between h-full py-20 mx-auto relative">
           <div className="flex flex-col items-center gap-3 mt-36 relative">
             <div className="flex flex-col items-center gap-12">
               <div className="flex scale-[4] -space-x-3">
@@ -176,14 +176,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex items-center justify-center relative h-[50vh] max-w-[500px] mx-auto">
+      <section className="flex items-center justify-center relative h-[50vh] mx-auto">
         <motion.div
           style={{
             x: leftPhoneX,
             scale: bumpScale,
             rotate: leftRotation,
           }}
-          className="shadow-sm border-[4px] border-solid border-black bg-primary h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center"
+          className="shadow-[0px_0px_51px_9px_rgba(147,_51,_234,_0.1)] border-[4px] border-solid border-black bg-primary h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center"
         >
           <QrCode className="w-20 h-20 text-primary-accent " />
         </motion.div>
@@ -194,7 +194,7 @@ export default function Home() {
             scale: bumpScale,
             rotate: rightRotation,
           }}
-          className="shadow-sm border-[4px] border-solid border-black bg-primary/20 rgb-background90 backdrop-blur-lg h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center"
+          className="shadow-[0px_0px_61px_9px_rgba(147,_51,_234,_0.4)] border-[4px] border-solid border-black bg-primary/20 rgb-background90 backdrop-blur-lg h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center"
         >
           <motion.div className="absolute" style={{ opacity: scanIconOpacity }}>
             <Scan className="w-20 h-20 text-secondary-foreground dark:text-primary" />
@@ -207,9 +207,9 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
-      <section className="flex flex-col items-center text-center justify-center relative max-w-[500px] mx-auto space-y-4 px-4">
+      <section className="flex flex-col items-center text-center justify-center relative mx-auto space-y-4 px-4">
         <motion.p
-          className="font-bold"
+          className="font-bold max-w-[500px]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -219,6 +219,7 @@ export default function Home() {
           create the missing foundation layer for music.
         </motion.p>
         <motion.p
+          className="max-w-[500px]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -229,6 +230,7 @@ export default function Home() {
           of Auracles.
         </motion.p>
         <motion.p
+          className="max-w-[500px]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
