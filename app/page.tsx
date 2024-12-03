@@ -248,7 +248,7 @@ export default function Home() {
         </motion.p>
       </section>
       <div className="space-y-16 my-16">
-        <section className="bg-primary-accent/5">
+        <section>
           <div className="max-w-[500px] text-center mx-auto card">
             <p className="text-3xl font-instrument-serif mb-8 font-medium">
               Join the gatherings planned so far!
@@ -257,7 +257,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-primary-accent/5">
+        <section>
           <QASection />
         </section>
       </div>
