@@ -92,7 +92,7 @@
   }
 
   .dark {
-    --background: 259 75% 12%;
+    --background: 259 75% 5%;
     --backgroundsaturated: 259 75% 13%;
 
     --primary: 259 83% 82%;
@@ -348,7 +348,7 @@
   body {
     color: var(--foreground);
     background: var(--background);
-    @apply bg-fixed;
+    background: fixed;
     background-image: radial-gradient(
       circle at center,
       hsl(var(--backgroundsaturated)) 20%,
