@@ -224,7 +224,7 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
-      <section className="flex flex-col items-center text-center justify-center relative mx-auto space-y-4 px-8">
+      <section className="flex flex-col items-center text-center justify-center relative mx-auto space-y-4 px-8 pt-12 sm:pt-6">
         <motion.p
           className="font-bold "
           initial="hidden"
