@@ -58,12 +58,12 @@ export function ContactForm() {
             />
           </div>
 
-          <div className="flex space-x-2 items-center bg-primary/5 p-4 rounded-xl cursor-pointer">
+          <div className="flex space-x-2 items-center bg-primary-foreground/5 dark:bg-primary/5 p-4 rounded-xl cursor-pointer">
             <Checkbox variant="check" required id="OPT_IN" name="OPT_IN" />
             <div className="grid gap-1.5 leading-none w-full">
               <label
                 htmlFor="OPT_IN"
-                className="text-xs mx-4 text-pretty font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-primary"
+                className="text-xs mx-4 text-pretty font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-primary-foreground dark:text-primary"
               >
                 I am happy to be contacted by the Auracles team and for my data
                 to be stored as per the Privacy Policy.
