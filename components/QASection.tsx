@@ -44,10 +44,6 @@ const questions: Question[] = [
             works of the song, to make remix and sample clearance easier. A song
             Auracle truly is “the everything” of a song.
           </li>
-          <li>
-            Auracles are for anyone involved in the business of making music. If
-            you usually get a credit on a song, you should start an Auracle!
-          </li>
         </ul>
       </>
     ),
@@ -55,7 +51,7 @@ const questions: Question[] = [
   {
     question: "Who are Auracles for?",
     answer:
-      "For now - Music makers only. However, looking at it in a wider sense managers and services benefit from the whole concept too.",
+      "Auracles are for anyone involved in the business of making music. If you usually get a credit on a song, you should start an Auracle!",
   },
   {
     question: "Is my data secure?",
