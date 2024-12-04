@@ -44,6 +44,10 @@ const questions: Question[] = [
             works of the song, to make remix and sample clearance easier. A song
             Auracle truly is “the everything” of a song.
           </li>
+          <li>
+            Auracles are for anyone involved in the business of making music. If
+            you usually get a credit on a song, you should start an Auracle!
+          </li>
         </ul>
       </>
     ),
