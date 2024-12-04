@@ -57,7 +57,7 @@ export default function Home() {
 
   const circleOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0.1]);
 
-  const scanIconOpacity = useTransform(scrollYProgress, [0.25, 0.3], [1, 0]);
+  const scanIconOpacity = useTransform(scrollYProgress, [0.15, 0.3], [1, 0]);
 
   const checkIconOpacity = useTransform(scrollYProgress, [0.25, 0.3], [0, 1]);
 
@@ -182,7 +182,7 @@ export default function Home() {
             scale: bumpScale,
             rotate: leftRotation,
           }}
-          className="dark:shadow-[0px_0px_150px_15px_rgba(236,_72,_153,_0.3)] 
+          className="dark:shadow-[0px_0px_150px_15px_rgba(236,_72,_153,_0.2)] 
           border-[4px] border-solid border-black bg-primary h-[300px] w-[180px] 
           rounded-3xl relative flex items-center justify-center
         
@@ -199,7 +199,7 @@ export default function Home() {
             scale: bumpScale,
             rotate: rightRotation,
           }}
-          className="dark:shadow-[0px_0px_150px_15px_rgba(0,_205,_205,_0.4)]
+          className="dark:shadow-[0px_0px_150px_15px_rgba(0,_205,_205,_0.3)]
           border-[4px] border-solid border-black
           backdrop-blur-md h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center
           rgb-background90 bg-[#1ae0cd]/20
