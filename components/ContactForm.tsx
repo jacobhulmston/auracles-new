@@ -19,25 +19,34 @@ export function ContactForm() {
     const formData = new FormData(form);
 
     try {
-      console.log("Submitting form data:", formData);
       const response = await fetch(
         "https://8c902c69.sibforms.com/serve/MUIFAN5JDAj2PFuAeu5j9OBXVMHnLorQi2DQgkgvhB13HEju_DYSGm4BxqTZIsX1pXfHoG3YGtfl6uGW0uVsFAGSmXa4OTECpcF42lPHag5wPHV8JXocJ6htwied1ea3UdcWZPw8SxAOTObIYp7DMldgmvPrIRRGXTa-EEOdc5t9CIdoOjDE74BjC6sLgsCsdSAEx3lzriV-wYwD",
         {
           method: "POST",
           body: formData,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Origin: window.location.origin,
+          },
+          mode: "cors",
         },
       );
 
-      console.log("Response received:", response);
+      console.log("Response status:", response.status);
+      const responseBody = await response.text();
+      console.log("Response body:", responseBody);
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      if (response.status === 200) {
+        setIsSubmitted(true);
+        return;
       }
 
-      setIsSubmitted(true);
+      throw new Error(`Submission failed with status: ${response.status}`);
     } catch (error) {
       console.error("Error during form submission:", error);
-      setError("Something went wrong. Please try again later.");
+      setError(
+        "Unable to submit the form. Please try again later or contact support.",
+      );
     } finally {
       setIsLoading(false);
     }
@@ -47,8 +56,10 @@ export function ContactForm() {
     <div className="w-full">
       {isSubmitted ? (
         <div className="text-center py-8 space-y-2">
-          <h3 className="text-xl font-semibold">Thanks for signing up!</h3>
-          <p>Please check your email to confirm your spot.</p>
+          <h3 className="font-semibold">Thanks for signing up!</h3>
+          <p className="text-sm">
+            Please check your email to confirm your spot.
+          </p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
