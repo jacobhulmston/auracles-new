@@ -185,11 +185,12 @@ export default function Home() {
           className="dark:shadow-[0px_0px_150px_15px_rgba(236,_72,_153,_0.2)] 
           border-[4px] border-solid border-black bg-primary h-[300px] w-[180px] 
           rounded-3xl relative flex items-center justify-center
-        
           hover:text-foreground/80
           bg-gradient-to-br from-[#ff00b3]/70 to-[#ff51cb]/20 via-[#ff51cb]/50
-          hover:bg-[#ff51cb] shadow-[inset_0px_0px_58px_8px_rgba(255,_255,_255,_0.9)]"
+          hover:bg-[#ff51cb] shadow-[inset_0px_0px_58px_8px_rgba(255,_255,_255,_0.9)]
+          outline outline-3 outline-offset-0 outline-secondary/90 dark:outline-primary-foreground/90"
         >
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[70px] h-[15px] bg-black rounded-b-[20px]" />
           <QrCode className="w-20 h-20 text-[#761e5c]" />
         </motion.div>
         <motion.div
@@ -205,8 +206,10 @@ export default function Home() {
           rgb-background90 bg-[#1ae0cd]/20
           hover:text-foreground/80 
           bg-gradient-to-bl from-[#1ae0cd]/50 to-[#86e7de]/20 via-[#86e7de]/30
-          hover:bg-[#71cbc2]/50 shadow-[inset_0px_0px_58px_8px_rgba(255,_255,_255,_0.9)]"
+          hover:bg-[#71cbc2]/50 shadow-[inset_0px_0px_58px_8px_rgba(255,_255,_255,_0.9)]
+          outline outline-3 outline-offset-0 outline-secondary/90 dark:outline-primary-foreground/90"
         >
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[70px] h-[15px] bg-black rounded-b-[20px]" />
           <motion.div className="absolute" style={{ opacity: scanIconOpacity }}>
             <Scan className="w-20 h-20 text-[#30716a] dark:text-[#86e7de]" />
           </motion.div>
