@@ -5,14 +5,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
-interface PointerEvent {
-  clientX: number;
-}
-
-interface TouchEvent {
-  touches: { clientX: number }[];
-}
-
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,
   height: 800,
