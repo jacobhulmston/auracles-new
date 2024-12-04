@@ -8,15 +8,20 @@ import { QASection } from "@/components/QASection";
 import { QrCode, BadgeCheck, Scan } from "lucide-react";
 
 export default function Home() {
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const [isDark, setIsDark] = useState<boolean>(true);
+  const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsDark(true);
-    }, 100);
-
-    return () => clearTimeout(timer);
+    setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      const root = window.document.documentElement;
+      root.classList.remove("light", "dark");
+      root.classList.add(isDark ? "dark" : "light");
+    }
+  }, [isDark, mounted]);
 
   const { scrollYProgress } = useScroll();
 
@@ -55,12 +60,6 @@ export default function Home() {
   const scanIconOpacity = useTransform(scrollYProgress, [0.25, 0.3], [1, 0]);
 
   const checkIconOpacity = useTransform(scrollYProgress, [0.25, 0.3], [0, 1]);
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove("light", "dark");
-    root.classList.add(isDark ? "dark" : "light");
-  }, [isDark]);
 
   const createBounceAnimation = (
     delay = 0,
@@ -110,23 +109,23 @@ export default function Home() {
       >
         <div className="relative w-[450px] h-[450px] rounded-full scale-125 mx-auto">
           <motion.div
-            className="absolute inset-1 rounded-full border-4 dark:border-primary-accent"
+            className="absolute inset-1 rounded-full border-4 border-secondary-foreground dark:border-primary-accent"
             animate={createBounceAnimation(0, [1, 1.1, 1], 2)}
           />
           <motion.div
-            className="absolute inset-8 rounded-full border-4 dark:border-primary-accent opacity-80"
+            className="absolute inset-8 rounded-full border-4 border-secondary-foreground dark:border-primary-accent opacity-80"
             animate={createBounceAnimation(0.01, [0.99, 1.095, 0.99], 3)}
           />
           <motion.div
-            className="absolute inset-14 rounded-full border-4 dark:border-primary-accent opacity-60"
+            className="absolute inset-14 rounded-full border-4 border-secondary-foreground dark:border-primary-accent opacity-60"
             animate={createBounceAnimation(0.02, [0.97, 1.09, 0.97], 4)}
           />
           <motion.div
-            className="absolute inset-20 rounded-full border-4 dark:border-primary-accent opacity-40"
+            className="absolute inset-20 rounded-full border-4 border-secondary-foreground dark:border-primary-accent opacity-40"
             animate={createBounceAnimation(0.03, [0.96, 1.085, 0.96], 5)}
           />
           <motion.div
-            className="absolute inset-26 rounded-full border-4 dark:border-primary-accent opacity-20"
+            className="absolute inset-26 rounded-full border-4 border-secondary-foreground dark:border-primary-accent opacity-20"
             animate={createBounceAnimation(0.04, [0.94, 1.08, 0.94], 6)}
           />
         </div>
@@ -140,8 +139,8 @@ export default function Home() {
               <div className="flex scale-[4] -space-x-3">
                 <Switch
                   id="theme-toggle"
-                  checked={isDark}
-                  onCheckedChange={setIsDark}
+                  checked={!isDark}
+                  onCheckedChange={(checked) => setIsDark(!checked)}
                   className="-rotate-[60deg] data-[state=checked]:bg-foreground data-[state=unchecked]:bg-foreground"
                 />
                 <div className="bg-primary-accent h-[20px] aspect-square rounded-full mt-[14px]"></div>
@@ -159,7 +158,7 @@ export default function Home() {
               <span className="text-secondary-foreground dark:text-primary-accent font-instrument-serif text-[80px] leading-none">
                 “
               </span>
-              <p className="text-foreground w-56 sm:w-full font-medium text-lg sm:text-xl md:text-2xl text-center mb-4 mt-4">
+              <p className="text-foreground w-56 sm:w-full font-medium text-2xl text-center mb-4 mt-4">
                 The music industry is a mess, right?
                 <br />
                 Well, we have a plan!
@@ -169,8 +168,8 @@ export default function Home() {
               </span>
             </div>
             <div className="text-foreground font-bold">
-              <p className="text-xs sm:text-base">Imogen Heap</p>
-              <p className="text-xs sm:text-xs">Auracles Founder</p>
+              <p className="text-base">Imogen Heap</p>
+              <p className="text-xs">Auracles Founder</p>
             </div>
           </div>
         </div>
@@ -215,8 +214,8 @@ export default function Home() {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUpVariants}
         >
-          On 9th December, music makers will connect and verify each other to
-          create the missing foundation layer for music.
+          On Dec 9th, music makers will connect and verify each other to create
+          the missing foundation layer for music.
         </motion.p>
         <motion.p
           className=""
@@ -225,9 +224,8 @@ export default function Home() {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUpVariants}
         >
-          More details will be coming next week, but events will include an 18
-          hour live stream from 9am GMT, hosted by me, Imogen Heap, the founder
-          of Auracles.
+          Events will include an 18 hour live stream from 9am GMT, hosted by me,
+          Imogen Heap; the founder of Auracles.
         </motion.p>
         <motion.p
           className=""
@@ -236,9 +234,15 @@ export default function Home() {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUpVariants}
         >
-          To be part of this live stream, sign up with your email below and
-          follow @Auracles.io on Instagram. If you can gather your music maker
-          friends on the day, I can bring you up on the screen!
+          To take part, sign up with your email below and follow{" "}
+          <a
+            className="underline decoration-dotted"
+            href="https://www.instagram.com/auracles.io/"
+          >
+            @Auracles.io
+          </a>{" "}
+          on Instagram. Bring together as many music makers as you can to verify
+          each other on our live stream.
         </motion.p>
         <motion.p
           initial="hidden"
@@ -253,7 +257,7 @@ export default function Home() {
         <section>
           <div className="text-center mx-auto card rounded-[20px] dark:shadow-[0px_0px_100px_15px_rgba(147,_51,_234,_0.1)]">
             <p className="text-2xl mb-8 font-medium">
-              Join the gatherings planned so far!
+              Be part of the Auracle global<br></br>launch event on Dec 9th…
             </p>
             <ContactForm />
           </div>
