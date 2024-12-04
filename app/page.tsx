@@ -142,9 +142,9 @@ export default function Home() {
                   id="theme-toggle"
                   checked={!isDark}
                   onCheckedChange={(checked) => setIsDark(!checked)}
-                  className="-rotate-[60deg] data-[state=checked]:bg-foreground data-[state=unchecked]:bg-foreground"
+                  className="-rotate-[60deg] data-[state=checked]:bg-primary-accent data-[state=unchecked]:bg-[#d91cf7]"
                 />
-                <div className="bg-primary-accent h-[20px] aspect-square rounded-full mt-[14px]"></div>
+                <div className="bg-black dark:bg-white h-[20px] aspect-square rounded-full mt-[14px]"></div>
               </div>
               <Image
                 src="/wordmark.svg"
