@@ -65,7 +65,7 @@ export default function Globe({
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const onRender = useCallback((state: Record<string, number>) => {
-    phiRef.current += 0.005;
+    phiRef.current += 0.01;
     state.phi = phiRef.current;
     state.width = widthRef.current * 2;
     state.height = widthRef.current * 2;
