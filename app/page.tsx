@@ -182,9 +182,15 @@ export default function Home() {
             scale: bumpScale,
             rotate: leftRotation,
           }}
-          className="dark:shadow-[0px_0px_51px_9px_rgba(147,_51,_234,_0.1)] border-[4px] border-solid border-black bg-primary h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center"
+          className="dark:shadow-[0px_0px_150px_15px_rgba(236,_72,_153,_0.3)] 
+          border-[4px] border-solid border-black bg-primary h-[300px] w-[180px] 
+          rounded-3xl relative flex items-center justify-center
+        
+          hover:text-foreground/80
+          bg-gradient-to-br from-[#ff00b3]/70 to-[#ff51cb]/20 via-[#ff51cb]/50
+          hover:bg-[#ff51cb] shadow-[inset_0px_0px_58px_8px_rgba(255,_255,_255,_0.9)]"
         >
-          <QrCode className="w-20 h-20 text-primary-accent " />
+          <QrCode className="w-20 h-20 text-[#761e5c]" />
         </motion.div>
         <motion.div
           style={{
@@ -193,16 +199,22 @@ export default function Home() {
             scale: bumpScale,
             rotate: rightRotation,
           }}
-          className="dark:shadow-[0px_0px_61px_9px_rgba(147,_51,_234,_0.4)] border-[4px] border-solid border-black bg-primary/20 rgb-background90 backdrop-blur-lg h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center"
+          className="dark:shadow-[0px_0px_150px_15px_rgba(0,_205,_205,_0.4)]
+          border-[4px] border-solid border-black
+          backdrop-blur-md h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center
+          rgb-background90 bg-[#1ae0cd]/20
+          hover:text-foreground/80 
+          bg-gradient-to-bl from-[#1ae0cd]/50 to-[#86e7de]/20 via-[#86e7de]/30
+          hover:bg-[#71cbc2]/50 shadow-[inset_0px_0px_58px_8px_rgba(255,_255,_255,_0.9)]"
         >
           <motion.div className="absolute" style={{ opacity: scanIconOpacity }}>
-            <Scan className="w-20 h-20 text-secondary-foreground dark:text-primary" />
+            <Scan className="w-20 h-20 text-[#30716a] dark:text-[#86e7de]" />
           </motion.div>
           <motion.div
             className="absolute"
             style={{ opacity: checkIconOpacity }}
           >
-            <BadgeCheck className="w-20 h-20 text-primary-accent" />
+            <BadgeCheck className="w-20 h-20 text-[#30716a] dark:text-[#bbede8]" />
           </motion.div>
         </motion.div>
       </section>
@@ -257,7 +269,7 @@ export default function Home() {
         <section>
           <div className="text-center mx-auto card rounded-[20px] dark:shadow-[0px_0px_100px_15px_rgba(147,_51,_234,_0.1)]">
             <p className="text-2xl mb-8 font-medium">
-              Be part of the Auracle global<br></br>launch event on Dec 9th…
+              Be part of the Auracle global launch event on Dec 9th…
             </p>
             <ContactForm />
           </div>

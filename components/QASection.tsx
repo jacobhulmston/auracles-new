@@ -18,8 +18,8 @@ const questions: Question[] = [
         An Auracle is “The Everything of Something”. Based on the physical
         concept of auras, an Auracle is a place for everything surrounding a
         person or a thing.
-        <ul className="list-disc pl-6 mt-2">
-          <li>
+        <ul className="list-disc pl-6 mt-4">
+          <li className="mb-4">
             <b>For music makers:</b> Your Auracle is the centralised store for
             “the everything of you” as an artist. For example, are you or your
             team fed up with updating your bio on multiple services? Maybe you
