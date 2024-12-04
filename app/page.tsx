@@ -40,7 +40,7 @@ export default function Home() {
 
   const bumpScale = useTransform(
     scrollYProgress,
-    [0.1, 0.15, 0.2],
+    [0.05, 0.1, 0.15],
     [1, 1.1, 1],
   );
 
@@ -52,9 +52,9 @@ export default function Home() {
 
   const circleOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
-  const scanIconOpacity = useTransform(scrollYProgress, [0.3, 0.35], [1, 0]);
+  const scanIconOpacity = useTransform(scrollYProgress, [0.25, 0.3], [1, 0]);
 
-  const checkIconOpacity = useTransform(scrollYProgress, [0.3, 0.35], [0, 1]);
+  const checkIconOpacity = useTransform(scrollYProgress, [0.25, 0.3], [0, 1]);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -93,7 +93,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative overflow-hidden px-0">
+    <div className="relative px-0 max-w-[500px] mx-6">
       {/* Background circles - moved outside sections */}
       <motion.div
         id="circle"
@@ -110,23 +110,23 @@ export default function Home() {
       >
         <div className="relative w-[450px] h-[450px] rounded-full scale-125 mx-auto">
           <motion.div
-            className="absolute inset-1 rounded-full border-4 border-primary-accent"
+            className="absolute inset-1 rounded-full border-4 dark:border-primary-accent"
             animate={createBounceAnimation(0, [1, 1.1, 1], 2)}
           />
           <motion.div
-            className="absolute inset-8 rounded-full border-4 border-primary-accent opacity-80"
+            className="absolute inset-8 rounded-full border-4 dark:border-primary-accent opacity-80"
             animate={createBounceAnimation(0.01, [0.99, 1.095, 0.99], 3)}
           />
           <motion.div
-            className="absolute inset-14 rounded-full border-4 border-primary-accent opacity-60"
+            className="absolute inset-14 rounded-full border-4 dark:border-primary-accent opacity-60"
             animate={createBounceAnimation(0.02, [0.97, 1.09, 0.97], 4)}
           />
           <motion.div
-            className="absolute inset-20 rounded-full border-4 border-primary-accent opacity-40"
+            className="absolute inset-20 rounded-full border-4 dark:border-primary-accent opacity-40"
             animate={createBounceAnimation(0.03, [0.96, 1.085, 0.96], 5)}
           />
           <motion.div
-            className="absolute inset-26 rounded-full border-4 border-primary-accent opacity-20"
+            className="absolute inset-26 rounded-full border-4 dark:border-primary-accent opacity-20"
             animate={createBounceAnimation(0.04, [0.94, 1.08, 0.94], 6)}
           />
         </div>
@@ -156,21 +156,21 @@ export default function Home() {
           </div>
           <div className="text-center">
             <div className="grid grid-cols-[auto_1fr_auto] items-center gap-2">
-              <span className="text-primary-accent font-instrument-serif text-[80px] leading-none">
+              <span className="text-secondary-foreground dark:text-primary-accent font-instrument-serif text-[80px] leading-none">
                 “
               </span>
-              <p className="text-foreground font-medium text-2xl text-center mb-4 mt-4">
+              <p className="text-foreground w-56 sm:w-full font-medium text-lg sm:text-xl md:text-2xl text-center mb-4 mt-4">
                 The music industry is a mess, right?
                 <br />
                 Well, we have a plan!
               </p>
-              <span className="text-primary-accent font-instrument-serif text-[80px] leading-none pl-1">
+              <span className="text-secondary-foreground dark:text-primary-accent font-instrument-serif text-[80px] leading-none pl-1">
                 ”
               </span>
             </div>
             <div className="text-foreground font-bold">
-              <p className="text-base">Imogen Heap</p>
-              <p className="text-xs">Auracles Founder</p>
+              <p className="text-xs sm:text-base">Imogen Heap</p>
+              <p className="text-xs sm:text-xs">Auracles Founder</p>
             </div>
           </div>
         </div>
@@ -183,7 +183,7 @@ export default function Home() {
             scale: bumpScale,
             rotate: leftRotation,
           }}
-          className="shadow-[0px_0px_51px_9px_rgba(147,_51,_234,_0.1)] border-[4px] border-solid border-black bg-primary h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center"
+          className="dark:shadow-[0px_0px_51px_9px_rgba(147,_51,_234,_0.1)] border-[4px] border-solid border-black bg-primary h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center"
         >
           <QrCode className="w-20 h-20 text-primary-accent " />
         </motion.div>
@@ -194,7 +194,7 @@ export default function Home() {
             scale: bumpScale,
             rotate: rightRotation,
           }}
-          className="shadow-[0px_0px_61px_9px_rgba(147,_51,_234,_0.4)] border-[4px] border-solid border-black bg-primary/20 rgb-background90 backdrop-blur-lg h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center"
+          className="dark:shadow-[0px_0px_61px_9px_rgba(147,_51,_234,_0.4)] border-[4px] border-solid border-black bg-primary/20 rgb-background90 backdrop-blur-lg h-[300px] w-[180px] rounded-3xl relative flex items-center justify-center"
         >
           <motion.div className="absolute" style={{ opacity: scanIconOpacity }}>
             <Scan className="w-20 h-20 text-secondary-foreground dark:text-primary" />
@@ -207,9 +207,9 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
-      <section className="flex flex-col items-center text-center justify-center relative mx-auto space-y-4 px-4">
+      <section className="flex flex-col items-center text-center justify-center relative mx-auto space-y-4 px-8">
         <motion.p
-          className="font-bold max-w-[500px]"
+          className="font-bold "
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -219,7 +219,7 @@ export default function Home() {
           create the missing foundation layer for music.
         </motion.p>
         <motion.p
-          className="max-w-[500px]"
+          className=""
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -230,7 +230,7 @@ export default function Home() {
           of Auracles.
         </motion.p>
         <motion.p
-          className="max-w-[500px]"
+          className=""
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -251,8 +251,8 @@ export default function Home() {
       </section>
       <div className="space-y-16 my-16">
         <section>
-          <div className="max-w-[500px] text-center mx-auto card">
-            <p className="text-3xl font-instrument-serif mb-8 font-medium">
+          <div className="text-center mx-auto card rounded-[20px] dark:shadow-[0px_0px_100px_15px_rgba(147,_51,_234,_0.1)]">
+            <p className="text-2xl mb-8 font-medium">
               Join the gatherings planned so far!
             </p>
             <ContactForm />

@@ -45,16 +45,17 @@ export function ContactForm() {
 
           <div className="space-y-2">
             <Label htmlFor="ROLE">Your Role *</Label>
-            <Input required id="ROLE" name="ROLE" />
-            <p className="text-xs text-muted-foreground">
-              (e.g. Musician, Producer)
-            </p>
+            <Input required id="ROLE" name="ROLE" placeholder="E.g. Musician" />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="LOCATION">Location *</Label>
-            <Input required id="LOCATION" name="LOCATION" />
-            <p className="text-xs text-muted-foreground">(e.g. London, UK)</p>
+            <Input
+              required
+              id="LOCATION"
+              name="LOCATION"
+              placeholder="E.g. London, UK"
+            />
           </div>
 
           <div className="flex items-start space-x-2">
@@ -62,7 +63,7 @@ export function ContactForm() {
             <div className="grid gap-1.5 leading-none">
               <label
                 htmlFor="OPT_IN"
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                className="text-sm font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
                 I am happy to be contacted by the Auracles team and for my data
                 to be stored as per the Privacy Policy.

@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${instrumentSerif.variable} antialiased flex flex-col min-h-screen text-foreground bg-background`}
       >
-        <main className="flex flex-col items-center justify-center flex-grow ">
+        <main className="flex flex-col items-center justify-center flex-grow">
           {children}
         </main>
         <Footer />

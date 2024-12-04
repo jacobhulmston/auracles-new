@@ -49,7 +49,7 @@ const questions: Question[] = [
     ),
   },
   {
-    question: "Who is Auracles for?",
+    question: "Who are Auracles for?",
     answer:
       "For now - Music makers only. However, looking at it in a wider sense managers and services benefit from the whole concept too.",
   },
