@@ -55,7 +55,7 @@ export default function Home() {
 
   const circleScale = useTransform(scrollYProgress, [0, 0.2], [1.5, 2.5]);
 
-  const circleOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+  const circleOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0.1]);
 
   const scanIconOpacity = useTransform(scrollYProgress, [0.25, 0.3], [1, 0]);
 
