@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ContactForm } from "@/components/ContactForm";
 import { QASection } from "@/components/QASection";
 import { QrCode, BadgeCheck, Scan } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   const [isDark, setIsDark] = useState<boolean>(true);
@@ -136,7 +137,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-between h-full py-20 mx-auto relative">
           <div className="flex flex-col items-center gap-3 mt-36 relative">
             <div className="flex flex-col items-center gap-12">
-              <div className="flex scale-[4] -space-x-3">
+              <div className="flex scale-[3.5] -space-x-3">
                 <Switch
                   id="theme-toggle"
                   checked={!isDark}
@@ -145,12 +146,14 @@ export default function Home() {
                 />
                 <div className="bg-primary-accent h-[20px] aspect-square rounded-full mt-[14px]"></div>
               </div>
-              <label
-                htmlFor="theme-toggle"
-                className="text-[80px] text-foreground font-medium font-instrument-serif"
-              >
-                Auracles
-              </label>
+              <Image
+                src="/wordmark.svg"
+                alt="Auracles"
+                width={843}
+                height={165}
+                className="text-foreground my-4 scale-[0.87] invert dark:invert-0"
+                priority
+              />
             </div>
           </div>
           <div className="text-center">
