@@ -272,7 +272,7 @@ export default function Home() {
         <section>
           <div className="text-center mx-auto card p-0 rounded-[20px] dark:shadow-[0px_0px_100px_15px_rgba(147,_51,_234,_0.1)]">
             <div className="w-full h-full p-8 rounded-[20px] shadow-[inset_0px_0px_56px_-7px_rgba(255,_255,_255,_0.05)]">
-              <p className="text-2xl mb-8 font-medium">
+              <p className="text-2xl mb-8 font-medium text-foreground dark:text-primary">
                 Be part of the Auracle global launch event on Dec 9th…
               </p>
               <ContactForm />
