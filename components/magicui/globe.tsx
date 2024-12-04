@@ -1,7 +1,7 @@
 "use client";
 
 import createGlobe, { COBEOptions } from "cobe";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -63,36 +63,13 @@ export default function Globe({
   const phiRef = useRef<number>(0);
   const widthRef = useRef<number>(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const pointerInteracting = useRef<number | null>(null);
-  const pointerInteractionMovement = useRef<number>(0);
-  const [r, setR] = useState<number>(0);
 
-  const updatePointerInteraction = (value: number | null) => {
-    pointerInteracting.current = value;
-    if (canvasRef.current) {
-      canvasRef.current.style.cursor = value !== null ? "grabbing" : "grab";
-    }
-  };
-
-  const updateMovement = (clientX: number) => {
-    if (pointerInteracting.current !== null) {
-      const delta = clientX - pointerInteracting.current;
-      pointerInteractionMovement.current = delta;
-      setR(delta / 200);
-    }
-  };
-
-  const onRender = useCallback(
-    (state: Record<string, number>) => {
-      if (!pointerInteracting.current) {
-        phiRef.current += 0.005;
-      }
-      state.phi = phiRef.current + r;
-      state.width = widthRef.current * 2;
-      state.height = widthRef.current * 2;
-    },
-    [r],
-  );
+  const onRender = useCallback((state: Record<string, number>) => {
+    phiRef.current += 0.005;
+    state.phi = phiRef.current;
+    state.width = widthRef.current * 2;
+    state.height = widthRef.current * 2;
+  }, []);
 
   const onResize = useCallback(() => {
     if (canvasRef.current) {
@@ -135,17 +112,6 @@ export default function Globe({
           "size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]",
         )}
         ref={canvasRef}
-        onPointerDown={(e: React.PointerEvent) =>
-          updatePointerInteraction(
-            e.clientX - pointerInteractionMovement.current,
-          )
-        }
-        onPointerUp={() => updatePointerInteraction(null)}
-        onPointerOut={() => updatePointerInteraction(null)}
-        onMouseMove={(e: React.MouseEvent) => updateMovement(e.clientX)}
-        onTouchMove={(e: React.TouchEvent) =>
-          e.touches[0] && updateMovement(e.touches[0].clientX)
-        }
       />
     </div>
   );
