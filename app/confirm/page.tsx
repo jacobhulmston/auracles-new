@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import Globe from "@/components/magicui/globe";
 
 export default function Home() {
@@ -19,8 +19,6 @@ export default function Home() {
       root.classList.add(isDark ? "dark" : "light");
     }
   }, [isDark, mounted]);
-
-  const { scrollYProgress } = useScroll();
 
   const createBounceAnimation = (
     delay = 0,
