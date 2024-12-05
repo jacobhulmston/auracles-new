@@ -7,6 +7,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Link from "next/link";
+import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 
 type ReleaseNote = {
   version: string;
@@ -27,7 +28,7 @@ export const Footer = () => {
     <footer className="flex justify-center w-full my-10 text-sm text-secondary-active text-center">
       <p>
         <Dialog>
-          <DialogTrigger className="hover:underline cursor-pointer">
+          <DialogTrigger className="hover:underline decoration-dotted cursor-pointer">
             Auracles {releaseNotes[0].version}
           </DialogTrigger>
           <DialogContent>
@@ -55,11 +56,12 @@ export const Footer = () => {
         </Dialog>{" "}
         © {new Date().getFullYear()}{" "}
         <Link
-          className="hover:underline cursor-pointer"
+          className="hover:underline decoration-dotted cursor-pointer"
           href="http://hablab.london/"
         >
           Hablab London Ltd
-        </Link>
+        </Link>{" "}
+        • <PrivacyPolicy />
       </p>
     </footer>
   );

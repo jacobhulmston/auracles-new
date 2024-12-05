@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
+import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 
 export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
@@ -110,7 +111,11 @@ export function ContactForm() {
                   className="text-xs mx-4 text-pretty font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-primary-foreground dark:text-primary"
                 >
                   I am happy to be contacted by the Auracles team and for my
-                  data to be stored as per the Privacy Policy.
+                  data to be stored as per the{" "}
+                  <span className="underline decoration-dotted cursor-pointer hover:opacity-80">
+                    <PrivacyPolicy />
+                  </span>
+                  .
                 </label>
               </div>
             </div>
