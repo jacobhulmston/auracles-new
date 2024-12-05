@@ -56,13 +56,12 @@ export default function Home() {
       <motion.div
         id="circle"
         style={{
-          scale: circleScale,
+          scale: "3",
           position: "fixed",
           top: "100px",
           left: "50%",
           x: "-50%",
           transformOrigin: "center",
-          opacity: circleOpacity,
         }}
         className="-z-10"
       >
