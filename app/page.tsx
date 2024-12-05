@@ -233,8 +233,8 @@ export default function Home() {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUpVariants}
         >
-          On Dec 9th, music makers will connect and verify each other to create
-          the missing foundation layer for music.
+          On Dec 9th, music makers will connect and validate each other to
+          create the missing foundation layer for music.
         </motion.p>
         <motion.p
           className=""
@@ -260,8 +260,8 @@ export default function Home() {
           >
             @Auracles.io
           </a>{" "}
-          on Instagram. Bring together as many music makers as you can to verify
-          each other on our live stream.
+          on Instagram. Bring together as many music makers as you can to
+          validate each other on our live stream.
         </motion.p>
         <motion.p
           initial="hidden"

@@ -116,7 +116,8 @@ export default function Home() {
                   @Auracles.io
                 </a>{" "}
                 on Instagram for updates. Remember to bring together as many
-                music makers as you can to verify each other on our live stream.
+                music makers as you can to validate each other on our live
+                stream.
               </motion.p>
             </div>
           </div>
