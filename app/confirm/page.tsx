@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import Globe from "@/components/magicui/globe";
 
 export default function Home() {
