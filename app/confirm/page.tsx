@@ -1,16 +1,11 @@
 "use client";
 
-import { Switch } from "@/components/ui/switch";
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ContactForm } from "@/components/ContactForm";
-import { QASection } from "@/components/QASection";
-import { QrCode, BadgeCheck, Scan } from "lucide-react";
-import Image from "next/image";
 import Globe from "@/components/magicui/globe";
 
 export default function Home() {
-  const [isDark, setIsDark] = useState<boolean>(true);
+  const [isDark] = useState<boolean>(true);
   const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
@@ -26,42 +21,6 @@ export default function Home() {
   }, [isDark, mounted]);
 
   const { scrollYProgress } = useScroll();
-
-  const leftPhoneX = useTransform(
-    scrollYProgress,
-    [0.15, 0.25],
-    ["-20px", "60px"],
-  );
-
-  const rightPhoneX = useTransform(
-    scrollYProgress,
-    [0.15, 0.25],
-    ["20px", "-100px"],
-  );
-
-  const rightPhoneY = useTransform(
-    scrollYProgress,
-    [0.15, 0.25],
-    ["-20px", "20px"],
-  );
-
-  const bumpScale = useTransform(
-    scrollYProgress,
-    [0.05, 0.1, 0.15],
-    [1, 1.1, 1],
-  );
-
-  const leftRotation = useTransform(scrollYProgress, [0.05, 0.15], [-2, 10]);
-
-  const rightRotation = useTransform(scrollYProgress, [0.05, 0.15], [2, -10]);
-
-  const circleScale = useTransform(scrollYProgress, [0, 0.2], [1.5, 2.5]);
-
-  const circleOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0.1]);
-
-  const scanIconOpacity = useTransform(scrollYProgress, [0.15, 0.3], [1, 0]);
-
-  const checkIconOpacity = useTransform(scrollYProgress, [0.25, 0.3], [0, 1]);
 
   const createBounceAnimation = (
     delay = 0,
@@ -143,7 +102,7 @@ export default function Home() {
           <div className="text-center mx-auto card p-0 rounded-[20px] dark:shadow-[0px_0px_100px_15px_rgba(147,_51,_234,_0.1)]">
             <div className="w-full h-full p-8 rounded-[20px] shadow-[inset_0px_0px_56px_-7px_rgba(255,_255,_255,_0.05)]">
               <p className="text-2xl font-medium text-foreground dark:text-primary">
-                You're in!
+                You&apos;re in!
               </p>
               <motion.p
                 className=""
