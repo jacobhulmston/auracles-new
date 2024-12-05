@@ -4,6 +4,7 @@ import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Footer } from "./footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
         <Footer />
       </body>
       <GoogleAnalytics gaId="G-C2B1HBNMNW" />
+      <Analytics />
     </html>
   );
 }
