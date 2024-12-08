@@ -51,7 +51,7 @@ const questions: Question[] = [
   {
     question: "Who are Auracles for?",
     answer:
-      "Auracles are for anyone involved in the business of making music. If you usually get a credit on a song, you should start an Auracle!",
+      "Auracles are for anyone involved in the business music and sound. If you usually get a credit, you should start an Auracle!",
   },
   {
     question: "Is my data secure?",
