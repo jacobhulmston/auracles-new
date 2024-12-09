@@ -8,6 +8,8 @@ import { QASection } from "@/components/QASection";
 import { QrCode, BadgeCheck, Scan } from "lucide-react";
 import Image from "next/image";
 import Globe from "@/components/magicui/globe";
+import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [isDark, setIsDark] = useState<boolean>(true);
@@ -233,7 +235,7 @@ export default function Home() {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUpVariants}
         >
-          On Dec 9th, music makers will connect and validate each other to
+          From Dec 9th, music makers will connect and validate each other to
           create the missing foundation layer for music.
         </motion.p>
         <motion.p
@@ -280,11 +282,46 @@ export default function Home() {
           <div className="text-center mx-auto card p-0 rounded-[20px] dark:shadow-[0px_0px_100px_15px_rgba(147,_51,_234,_0.1)]">
             <div className="w-full h-full p-8 rounded-[20px] shadow-[inset_0px_0px_56px_-7px_rgba(255,_255,_255,_0.05)]">
               <p className="text-2xl mb-8 font-medium text-foreground dark:text-primary">
-                Be part of the Auracle global launch event on Dec 9th…
+                Watch the Auracles global launch event…
               </p>
-              <ContactForm />
+              <div className="relative">
+                <HeroVideoDialog
+                  className="dark:hidden block"
+                  animationStyle="top-in-bottom-out"
+                  videoSrc="https://www.youtube.com/embed/grhC4joEiow?si=4rb-zSdDkVK9qxxb"
+                  thumbnailSrc="/mapimage.jpg"
+                  thumbnailAlt="Auracles Public Launch Event"
+                />
+                <HeroVideoDialog
+                  className="hidden dark:block"
+                  animationStyle="top-in-bottom-out"
+                  videoSrc="https://www.youtube.com/embed/grhC4joEiow?si=4rb-zSdDkVK9qxxb"
+                  thumbnailSrc="/mapimage.jpg"
+                  thumbnailAlt="Auracles Public Launch Event"
+                />
+              </div>
             </div>
           </div>
+        </section>
+        <section className="flex flex-col items-center text-center justify-center relative mx-auto space-y-4 px-8 pt-12 sm:pt-6">
+          <a
+            href="https://id.auracles.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button animated size="xl">
+              Create an Auracle ID
+            </Button>
+          </a>
+          <a
+            href="https://song.auracles.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button animated size="xl">
+              Preview an Auracle of a song
+            </Button>
+          </a>
         </section>
 
         <section>
