@@ -94,9 +94,20 @@ export default function Globe({
       }
     });
 
+    let frameId: number;
+    const animate = () => {
+      frameId = requestAnimationFrame(animate);
+      // animation logic
+    };
+
+    frameId = requestAnimationFrame(animate);
+
     return () => {
       window.removeEventListener("resize", onResize);
       globe.destroy();
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
     };
   }, [config, onRender, onResize]);
 

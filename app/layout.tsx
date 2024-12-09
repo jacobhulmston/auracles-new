@@ -5,6 +5,7 @@ import "./globals.css";
 import { Footer } from "./footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
+import { ErrorBoundary } from "./error-boundary";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,10 +34,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${instrumentSerif.variable} antialiased flex flex-col min-h-screen text-foreground bg-background`}
       >
-        <main className="flex flex-col items-center justify-center flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <ErrorBoundary>
+          <main className="flex flex-col items-center justify-center flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </ErrorBoundary>
       </body>
       <GoogleAnalytics gaId="G-C2B1HBNMNW" />
       <Analytics />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Play, XIcon } from "lucide-react";
 
@@ -77,6 +77,14 @@ export default function HeroVideoDialog({
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const selectedAnimation = animationVariants[animationStyle];
 
+  useEffect(() => {
+    return () => {
+      if (isVideoOpen) {
+        setIsVideoOpen(false);
+      }
+    };
+  }, [isVideoOpen]);
+
   return (
     <div className={cn("relative", className)}>
       <div
@@ -128,6 +136,7 @@ export default function HeroVideoDialog({
                   src={videoSrc}
                   className="size-full rounded-2xl"
                   allowFullScreen
+                  loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 ></iframe>
               </div>

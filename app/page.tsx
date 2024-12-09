@@ -26,43 +26,69 @@ export default function Home() {
     }
   }, [isDark, mounted]);
 
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({
+    layoutEffect: false,
+  });
 
   const leftPhoneX = useTransform(
     scrollYProgress,
     [0.15, 0.25],
     ["-20px", "60px"],
+    {
+      clamp: true,
+    },
   );
 
   const rightPhoneX = useTransform(
     scrollYProgress,
     [0.15, 0.25],
     ["20px", "-100px"],
+    {
+      clamp: true,
+    },
   );
 
   const rightPhoneY = useTransform(
     scrollYProgress,
     [0.15, 0.25],
     ["-20px", "20px"],
+    {
+      clamp: true,
+    },
   );
 
   const bumpScale = useTransform(
     scrollYProgress,
     [0.05, 0.1, 0.15],
     [1, 1.1, 1],
+    {
+      clamp: true,
+    },
   );
 
-  const leftRotation = useTransform(scrollYProgress, [0.05, 0.15], [-2, 10]);
+  const leftRotation = useTransform(scrollYProgress, [0.05, 0.15], [-2, 10], {
+    clamp: true,
+  });
 
-  const rightRotation = useTransform(scrollYProgress, [0.05, 0.15], [2, -10]);
+  const rightRotation = useTransform(scrollYProgress, [0.05, 0.15], [2, -10], {
+    clamp: true,
+  });
 
-  const circleScale = useTransform(scrollYProgress, [0, 0.2], [1.5, 2.5]);
+  const circleScale = useTransform(scrollYProgress, [0, 0.2], [1.5, 2.5], {
+    clamp: true,
+  });
 
-  const circleOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0.1]);
+  const circleOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0.1], {
+    clamp: true,
+  });
 
-  const scanIconOpacity = useTransform(scrollYProgress, [0.15, 0.3], [1, 0]);
+  const scanIconOpacity = useTransform(scrollYProgress, [0.15, 0.3], [1, 0], {
+    clamp: true,
+  });
 
-  const checkIconOpacity = useTransform(scrollYProgress, [0.25, 0.3], [0, 1]);
+  const checkIconOpacity = useTransform(scrollYProgress, [0.25, 0.3], [0, 1], {
+    clamp: true,
+  });
 
   const createBounceAnimation = (
     delay = 0,
