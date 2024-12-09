@@ -3,7 +3,6 @@
 import { Switch } from "@/components/ui/switch";
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ContactForm } from "@/components/ContactForm";
 import { QASection } from "@/components/QASection";
 import { QrCode, BadgeCheck, Scan } from "lucide-react";
 import Image from "next/image";
