@@ -287,14 +287,14 @@ export default function Home() {
                 <HeroVideoDialog
                   className="dark:hidden block"
                   animationStyle="top-in-bottom-out"
-                  videoSrc="https://www.youtube.com/embed/grhC4joEiow?si=4rb-zSdDkVK9qxxb"
+                  videoSrc="https://www.youtube.com/embed/Wl3Ha0CE3pQ"
                   thumbnailSrc="/mapimage.jpg"
                   thumbnailAlt="Auracles Public Launch Event"
                 />
                 <HeroVideoDialog
                   className="hidden dark:block"
                   animationStyle="top-in-bottom-out"
-                  videoSrc="https://www.youtube.com/embed/grhC4joEiow?si=4rb-zSdDkVK9qxxb"
+                  videoSrc="https://www.youtube.com/embed/Wl3Ha0CE3pQ"
                   thumbnailSrc="/mapimage.jpg"
                   thumbnailAlt="Auracles Public Launch Event"
                 />
