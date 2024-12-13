@@ -6,8 +6,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { QASection } from "@/components/QASection";
 import { QrCode, BadgeCheck, Scan } from "lucide-react";
 import Image from "next/image";
-import Globe from "@/components/magicui/globe";
-import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
