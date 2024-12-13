@@ -263,7 +263,7 @@ export default function Home() {
           From Dec 9th, music makers will connect and validate each other to
           create the missing foundation layer for music.
         </motion.p>
-        <motion.p
+        {/*} <motion.p
           className=""
           initial="hidden"
           whileInView="visible"
@@ -272,7 +272,7 @@ export default function Home() {
         >
           Events will include an 18 hour live stream from 9am GMT, hosted by me,
           Imogen Heap; the founder of Auracles.
-        </motion.p>
+        </motion.p> */}
         <motion.p
           className=""
           initial="hidden"
@@ -280,15 +280,16 @@ export default function Home() {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUpVariants}
         >
-          To take part, sign up with your email below and follow{" "}
+          To join the Auracles network, create your Auracle ID clicking the
+          button below and follow{" "}
           <a
             className="underline decoration-dotted"
             href="https://www.instagram.com/auracles.io/"
           >
             @Auracles.io
           </a>{" "}
-          on Instagram. Bring together as many music makers as you can to
-          validate each other on our live stream.
+          on Instagram. Bring together as many music makers as you can and
+          validate each other on the map to join the map.
         </motion.p>
         <motion.p
           initial="hidden"
@@ -300,7 +301,7 @@ export default function Home() {
         </motion.p>
       </section>
       <div className="space-y-16 my-16">
-        <section>
+        {/* <section>
           <div className="h-[150px] hover:h-[300px] transition-all bg-transparent duration-700 relative flex size-full max-w-lg items-center justify-center overflow-hidden px-40">
             <Globe className="-top-6 opacity-80 hover:opacity-100 transition-opacity duration-1000" />
           </div>
@@ -327,7 +328,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section>*/}
         <section className="flex flex-col items-center text-center justify-center relative mx-auto space-y-4 px-8 pt-12 sm:pt-6">
           <a
             href="https://id.auracles.io"
