@@ -259,7 +259,7 @@ export default function Home() {
           variants={fadeInUpVariants}
         >
           For everyone in the business of making music. Auracles are the
-          centralised store for &quotthe everything of you&quot.
+          centralised store for &#8220;the everything of you&#8221;.
         </motion.p>
         {/*} <motion.p
           className=""
