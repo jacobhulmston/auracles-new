@@ -258,8 +258,8 @@ export default function Home() {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUpVariants}
         >
-          From Dec 9th, music makers will connect and validate each other to
-          create the missing foundation layer for music.
+          For everyone in the business of making music. Auracles are the
+          centralised store for "the everything of you".
         </motion.p>
         {/*} <motion.p
           className=""
