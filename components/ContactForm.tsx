@@ -30,25 +30,45 @@ export function ContactForm({ isOpen, onOpenChange }: ContactFormProps) {
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
 
+    // Add the hidden fields required by Brevo
+    formData.append("email_address_check", "");
+    formData.append("locale", "en");
+    formData.append("html_type", "simple");
+
+    // Convert FormData to URLSearchParams for proper encoding
+    const params = new URLSearchParams();
+    for (const [key, value] of formData.entries()) {
+      params.append(key, value.toString());
+    }
+
     try {
+      // Use the correct endpoint URL from the Brevo form
       const response = await fetch(
-        "https://8c902c69.sibforms.com/serve/MUIFAFdyhdSkfqc_XUyDq9eYC0oAZQkoFtvCyrgFISHI86ukqAvWPzmGzGEC2JXOlP9PGiuN8_JHIARvjtRQNTNhLQqBpH1eA7SIab_c9HHWbJQX115oXxM17I4EDU6uyHwWg2MVpLv0Z74lWbxJ_HGc9hUNNrxwWUZI9dSRVpSyhbZKrBzQ9AS8lOjAZ1hgUy_99z3jN6hLS2mI",
+        "https://8c902c69.sibforms.com/serve/MUIFAHq1t3TB0ldhp-YzHCiiguFzlQYcIgTGgd5yG7CgfrBlqfuT37VxTaqxN46w6g5rWatCxApwNbk1uwR__Kxe9IoHxWQFqyLD3VSD1F1nBLTUwUigMSY6_AtFEduk2V63RKV_yJJILzkiK2LCTMIIHWT0EqO-qWzuosEiYPc0s8rQhbBbozynD3jf2rKNPmTcWeiSFkj3ZeIR",
         {
           method: "POST",
-          body: formData,
+          body: params, // Use the URLSearchParams object
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
-            Origin: window.location.origin,
+            Accept: "application/json",
           },
           mode: "cors",
         },
       );
 
       console.log("Response status:", response.status);
-      const responseBody = await response.text();
-      console.log("Response body:", responseBody);
 
-      if (response.status === 200) {
+      // Try to parse as JSON first, fall back to text if that fails
+      let responseData;
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        responseData = await response.json();
+      } else {
+        responseData = await response.text();
+      }
+      console.log("Response data:", responseData);
+
+      if (response.ok) {
         setIsSubmitted(true);
         return;
       }
@@ -130,6 +150,7 @@ export function ContactForm({ isOpen, onOpenChange }: ContactFormProps) {
                     required
                     id="OPT_IN"
                     name="OPT_IN"
+                    value="1" // Add value attribute to match Brevo's form
                   />
                   <div className="grid gap-1.5 leading-none w-full">
                     <label
