@@ -2,6 +2,7 @@ import React, { forwardRef, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
 import { Building, LayoutTemplate, Ticket } from "lucide-react";
+import Image from "next/image";
 
 type CircleProps = {
   className?: string;
@@ -44,10 +45,14 @@ export function APIAnimation({ className }: { className?: string }) {
       <div className="flex size-full max-w-lg flex-row items-stretch justify-between">
         <div className="flex flex-col justify-center">
           <Circle ref={centralRef} className="size-16">
-            <img
+            <Image
               src="/auracles-app-icon-small.png"
               alt="Auracles App Icon"
-              className="size-full rounded-full"
+              className="rounded-full"
+              layout="intrinsic"
+              width={64}
+              height={64}
+              objectFit="cover"
             />
           </Circle>
         </div>
