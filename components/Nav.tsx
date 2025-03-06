@@ -1,22 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Search,
-  ShoppingBag,
-  Globe,
-  UserRound,
-  ScanFace,
-  Newspaper,
-  ArrowRightIcon,
-  Mail,
-  MessagesSquare,
-} from "lucide-react";
+import { UserRound, Newspaper, ArrowRightIcon, Mail } from "lucide-react";
 import { AuraclesIcon } from "@/components/icons/auracles-icon";
 import { Discord } from "@/components/icons/discord";
-
-interface NavProps {}
 
 export function Nav() {
   return (

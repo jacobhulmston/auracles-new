@@ -1,12 +1,4 @@
-import {
-  Brain,
-  Zap,
-  Shield,
-  Settings2,
-  SearchX,
-  ShieldQuestion,
-  WalletCards,
-} from "lucide-react";
+import { Settings2, SearchX, ShieldQuestion } from "lucide-react";
 import { motion } from "framer-motion";
 
 const problems = [
@@ -63,7 +55,7 @@ export function ProblemSection() {
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {problems.map((problem, index) => (
+        {problems.map((problem) => (
           <motion.div
             key={problem.title}
             initial="hidden"

@@ -1,5 +1,4 @@
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-import { Sparkles } from "lucide-react";
 import { ComponentPropsWithoutRef, ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";

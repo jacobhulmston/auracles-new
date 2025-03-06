@@ -1,6 +1,4 @@
-import { SVGProps } from "react";
-
-export const AuracleBorder = (props: SVGProps<SVGSVGElement>) => (
+export const AuracleBorder = () => (
   <svg
     width="100%"
     height="100%"

@@ -1,32 +1,11 @@
 import React from "react";
-import { CalendarIcon, FileTextIcon } from "@radix-ui/react-icons";
-import {
-  BellIcon,
-  Share2Icon,
-  DatabaseIcon,
-  CodeIcon,
-  SearchIcon,
-  FileIcon,
-  BrainIcon,
-  ShieldIcon,
-  UserCheckIcon,
-  UsersIcon,
-  KeyIcon,
-  MicIcon,
-  LucideIcon,
-} from "lucide-react";
+import { DatabaseIcon, CodeIcon, LucideIcon } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-
-import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
-import { AnimatedBeamDemo } from "@/components/AnimatedBeamDemo";
-import { AnimatedListDemo } from "@/components/AnimatedListDemo";
-import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import { DataOrganizationAnimation } from "@/components/DataOrganizationAnimation";
 import { APIAnimation } from "@/components/APIAnimation";
 import { UserNetworkAnimation } from "@/components/UserNetworkAnimation";
 import Image from "next/image";
-// Add this type definition at the top of the file, after the imports
 type Feature = {
   name: string;
   description: string;
@@ -39,7 +18,6 @@ type Feature = {
   customComponent?: React.ReactNode;
 };
 
-// Update the features array to use the self-contained component
 const features: Feature[] = [
   {
     name: "Control and organise your data",

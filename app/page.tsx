@@ -1,26 +1,12 @@
 "use client";
 
-import { Switch } from "@/components/ui/switch";
-import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { QASection } from "@/components/QASection";
-import {
-  QrCode,
-  BadgeCheck,
-  Scan,
-  CircleFadingPlus,
-  SparklesIcon,
-  Newspaper,
-  ArrowRightIcon,
-  LogIn,
-  Mail,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { CircleFadingPlus, Newspaper, LogIn, Mail } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { FeatureBento } from "@/components/FeatureBento";
 import { CirclesBackground } from "@/components/CirclesBackground";
 import { ProblemSection } from "@/components/ProblemSection";
-import { SolutionSection } from "@/components/SolutionSection";
 import { Supporters } from "@/components/Supporters";
 import { AuracleBorder } from "@/components/AuracleBorder";
 
@@ -148,7 +134,9 @@ export default function Home() {
               </h2>
               <p className="text-sm text-gray-600 text-balance">
                 An Auracle defines the{" "}
-                <span className="font-bold">"Everything of Something".</span>{" "}
+                <span className="font-bold">
+                  &quot;Everything of Something&quot;.
+                </span>{" "}
                 Artists can create Auracles for each of their artistic personas,
                 and create ones for each of their works. All ready to populate
                 with detailed metadata points and permissions.
@@ -177,10 +165,10 @@ export default function Home() {
                 Work with us…
               </h2>
               <p className="text-sm text-gray-600 text-pretty">
-                We've built the solution, now we need the industry to integrate.
-                Get early access to our API, and join our talks with partners
-                and goverment bodies to help build the future for the creative
-                industry.
+                We&apos;ve built the solution, now we need the industry to
+                integrate. Get early access to our API, and join our talks with
+                partners and goverment bodies to help build the future for the
+                creative industry.
               </p>
               <div className="flex flex-row gap-4">
                 <a
