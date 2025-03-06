@@ -86,7 +86,7 @@ export function ContactForm({ isOpen, onOpenChange }: ContactFormProps) {
             <div className="text-center py-8 space-y-2">
               <h3 className="font-semibold">Thanks for signing up!</h3>
               <p className="text-sm">
-                Please check your email to confirm your spot.
+                Please check your email to confirm your subscription.
               </p>
             </div>
           ) : (
