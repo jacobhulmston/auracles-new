@@ -65,9 +65,8 @@ export default function Home() {
             </p>
           </div>
           <div className="w-full max-w-[1200px] aspect-[16/10] relative">
-            <div className="absolute inset-0 bottom-[-3px] bg-gradient-to-b via-background/20 from-transparent to-[#f4ede5] z-10" />
             <Image
-              src="/app-screenshot-4.png"
+              src="/app-screenshot-6.png"
               alt="Auracles browser window screenshot"
               fill
               className="object-cover rounded-[20px]"
@@ -172,7 +171,7 @@ export default function Home() {
               </p>
               <div className="flex flex-row gap-4">
                 <a
-                  href="https://id.auracles.io"
+                  href="mailto:hello@auracles.io"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

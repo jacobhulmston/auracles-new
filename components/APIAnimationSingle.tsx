@@ -1,15 +1,7 @@
 import React, { forwardRef, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
-import {
-  Building,
-  LayoutTemplate,
-  Ticket,
-  PanelsTopLeft,
-  Store,
-  Landmark,
-  SquareLibrary,
-} from "lucide-react";
+import { Building, LayoutTemplate, Ticket } from "lucide-react";
 import Image from "next/image";
 
 type CircleProps = {
@@ -32,21 +24,15 @@ const Circle = forwardRef<HTMLDivElement, CircleProps>(
     );
   },
 );
+
 Circle.displayName = "Circle";
 
 export function APIAnimation({ className }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const centralRef = useRef<HTMLDivElement>(null);
-
-  // Right side refs (existing)
   const websiteRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<HTMLDivElement>(null);
   const serviceRef = useRef<HTMLDivElement>(null);
-
-  // Left side refs (new)
-  const userRef = useRef<HTMLDivElement>(null);
-  const mailRef = useRef<HTMLDivElement>(null);
-  const phoneRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
@@ -57,34 +43,19 @@ export function APIAnimation({ className }: { className?: string }) {
       ref={containerRef}
     >
       <div className="flex size-full max-w-lg flex-row items-stretch justify-between">
-        {/* Left side icons */}
-        <div className="flex flex-col justify-center gap-4 text-foreground">
-          <Circle ref={userRef}>
-            <SquareLibrary className="size-6" />
-          </Circle>
-          <Circle ref={mailRef}>
-            <Store className="size-6" />
-          </Circle>
-          <Circle ref={phoneRef}>
-            <Landmark className="size-6" />
-          </Circle>
-        </div>
-
-        {/* Center icon */}
         <div className="flex flex-col justify-center">
           <Circle ref={centralRef} className="size-16">
             <Image
               src="/auracles-app-icon-small.png"
               alt="Auracles App Icon"
               className="rounded-full"
+              layout="intrinsic"
               width={64}
               height={64}
-              style={{ objectFit: "cover" }}
+              objectFit="cover"
             />
           </Circle>
         </div>
-
-        {/* Right side icons (existing) */}
         <div className="flex flex-col justify-center gap-4 text-foreground">
           <Circle ref={websiteRef}>
             <Building className="size-6" />
@@ -98,47 +69,24 @@ export function APIAnimation({ className }: { className?: string }) {
         </div>
       </div>
 
-      {/* Right side beams (existing) */}
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={centralRef}
         toRef={websiteRef}
-        duration={6}
+        duration={3}
+        reverse
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={centralRef}
         toRef={appRef}
-        duration={6}
+        duration={3}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={centralRef}
         toRef={serviceRef}
-        duration={6}
-      />
-
-      {/* Left side beams (new) */}
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={centralRef}
-        toRef={userRef}
-        duration={6}
-        reverse
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={centralRef}
-        toRef={mailRef}
-        duration={6}
-        reverse
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={centralRef}
-        toRef={phoneRef}
-        duration={6}
-        reverse
+        duration={3}
       />
     </div>
   );

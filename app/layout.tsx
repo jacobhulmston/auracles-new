@@ -31,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className=" bg-background">
+    <html lang="en">
       <body
-        className={`${inter.variable} ${instrumentSerif.variable} antialiased flex flex-col min-h-screen text-foreground bg-no-repeat bg-cover bg-fixed bg-gradient-to-t from-[hsl(var(--backgroundsaturated)/0.3)] from-[56%] via-[hsl(var(--backgroundsaturated)/0.31)] via-[84.5%] to-[hsl(var(--backgroundsaturated))] to-[100%]`}
+        className={`${inter.variable} ${instrumentSerif.variable} antialiased flex flex-col min-h-screen text-foreground bg-no-repeat bg-cover bg-gradient-to-t from-[hsl(var(--backgroundsaturated)/0.3)] from-[56%] via-[hsl(var(--backgroundsaturated)/0.31)] via-[84.5%] to-[hsl(var(--backgroundsaturated))] to-[100%]`}
       >
         <ErrorBoundary>
           <Nav />
