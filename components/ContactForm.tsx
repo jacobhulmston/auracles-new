@@ -112,18 +112,12 @@ export function ContactForm({ isOpen, onOpenChange }: ContactFormProps) {
 
                 <div className="space-y-2">
                   <Label htmlFor="ROLE">Your Role</Label>
-                  <Input
-                    required
-                    id="ROLE"
-                    name="ROLE"
-                    placeholder="E.g. Musician"
-                  />
+                  <Input id="ROLE" name="ROLE" placeholder="E.g. Musician" />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="LOCATION">Location</Label>
                   <Input
-                    required
                     id="LOCATION"
                     name="LOCATION"
                     placeholder="E.g. London, UK"
