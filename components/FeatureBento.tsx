@@ -177,7 +177,7 @@ export function FeatureBento() {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pointer-events-none">
       {features.map((feature, idx) => (
         <FeatureCard key={idx} feature={feature} isMobile={isMobile} />
       ))}
