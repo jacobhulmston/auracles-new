@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { CircleFadingPlus, Newspaper, LogIn, Mail } from "lucide-react";
 import Image from "next/image";
@@ -9,8 +10,11 @@ import { CirclesBackground } from "@/components/CirclesBackground";
 import { ProblemSection } from "@/components/ProblemSection";
 import { Supporters } from "@/components/Supporters";
 import { AuracleBorder } from "@/components/AuracleBorder";
+import { ContactForm } from "@/components/ContactForm";
 
 export default function Home() {
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -24,6 +28,11 @@ export default function Home() {
 
   return (
     <div className="relative px-6 overflow-x-clip w-full flex flex-col items-center justify-center">
+      {/* ContactForm Dialog */}
+      <ContactForm
+        isOpen={isContactFormOpen}
+        onOpenChange={setIsContactFormOpen}
+      />
       {/* Hero Section - removed circles from here */}
       <section className="flex flex-col items-center justify-center relative sm:top-[550px] top-[300px]">
         <CirclesBackground />
@@ -180,16 +189,17 @@ export default function Home() {
                     Contact Us
                   </Button>
                 </a>
-                <a
-                  href="https://id.auracles.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
+
+                <Button
+                  variant="accent"
+                  animated
+                  size="xl"
+                  className="gap-2"
+                  onClick={() => setIsContactFormOpen(true)}
                 >
-                  <Button variant="accent" animated size="xl" className="gap-2">
-                    <Newspaper strokeWidth="2.25" className="h-5 w-5" />
-                    Newsletter
-                  </Button>
-                </a>
+                  <Newspaper strokeWidth="2.25" className="h-5 w-5" />
+                  Newsletter
+                </Button>
               </div>
             </motion.div>
           </section>

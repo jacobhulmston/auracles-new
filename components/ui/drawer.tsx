@@ -1,41 +1,41 @@
+"use client";
 import * as React from "react";
-import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
+import { Drawer as DrawerPrimitive } from "vaul";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
 
-const Dialog = DialogPrimitive.Root;
-
-const DialogTrigger = DialogPrimitive.Trigger;
-
-const DialogPortal = DialogPrimitive.Portal;
-
-const DialogClose = DialogPrimitive.Close;
-
-const DialogOverlay = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Overlay
-    ref={ref}
-    className={cn(
-      "fixed inset-0 z-40 bg-accent backdrop-blur-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-      className,
-    )}
+const Drawer = ({
+  shouldScaleBackground = true,
+  ...props
+}: React.ComponentProps<typeof DrawerPrimitive.Root>) => (
+  <DrawerPrimitive.Root
+    setBackgroundColorOnScale={false}
+    shouldScaleBackground={shouldScaleBackground}
     {...props}
-    style={{
-      WebkitBackdropFilter: "blur(24px)",
-      isolation: "isolate",
-      backgroundColor: "rgba(255, 255, 255, 0.01)",
-    }}
+  />
+);
+Drawer.displayName = "Drawer";
+
+const DrawerTrigger = DrawerPrimitive.Trigger;
+const DrawerPortal = DrawerPrimitive.Portal;
+const DrawerClose = DrawerPrimitive.Close;
+
+const DrawerOverlay = React.forwardRef<
+  React.ElementRef<typeof DrawerPrimitive.Overlay>,
+  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay>
+>(({ className, ...props }, ref) => (
+  <DrawerPrimitive.Overlay
+    ref={ref}
+    className={cn("fixed inset-0 z-50 bg-black/50 backdrop-blur-md", className)}
+    {...props}
   />
 ));
-DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
+DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
 
-const DialogContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
+const DrawerContent = React.forwardRef<
+  React.ElementRef<typeof DrawerPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>
 >(({ className, children, ...props }, ref) => {
   // Check if footer exists among children
   const hasFooter = React.Children.toArray(children).some(
@@ -43,17 +43,17 @@ const DialogContent = React.forwardRef<
       React.isValidElement(child) &&
       typeof child.type !== "string" &&
       "displayName" in child.type &&
-      (child.type.displayName === "DialogFooter" ||
+      (child.type.displayName === "DrawerFooter" ||
         child.type.displayName === "CredenzaFooter"),
   );
 
   return (
-    <DialogPortal>
-      <DialogOverlay />
-      <DialogPrimitive.Content
+    <DrawerPortal>
+      <DrawerOverlay />
+      <DrawerPrimitive.Content
         ref={ref}
         className={cn(
-          "outline-offset-0 outline outline-1 outline-background/80 fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] bg-background shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] rounded-[20px]",
+          "fixed inset-x-0 bottom-0 z-50 flex h-auto max-h-[calc(100vh-8rem)] flex-col rounded-t-[10px] border bg-background",
           className,
         )}
         {...props}
@@ -63,8 +63,8 @@ const DialogContent = React.forwardRef<
             React.isValidElement(child) &&
             typeof child.type !== "string" &&
             "displayName" in child.type &&
-            (child.type.displayName === "DialogHeader" ||
-              child.type.displayName === "DialogFooter" ||
+            (child.type.displayName === "DrawerHeader" ||
+              child.type.displayName === "DrawerFooter" ||
               child.type.displayName === "CredenzaHeader" ||
               child.type.displayName === "CredenzaFooter")
           ) {
@@ -73,7 +73,7 @@ const DialogContent = React.forwardRef<
           // Adjust padding based on footer presence
           return (
             <div
-              className={`max-h-[calc(100svh-4rem)] no-scrollbar overflow-y-auto px-4 pt-[69px] ${
+              className={`no-scrollbar overflow-y-auto px-4 pt-[69px] ${
                 hasFooter ? "pb-24" : "pb-4"
               }`}
             >
@@ -81,13 +81,13 @@ const DialogContent = React.forwardRef<
             </div>
           );
         })}
-      </DialogPrimitive.Content>
-    </DialogPortal>
+      </DrawerPrimitive.Content>
+    </DrawerPortal>
   );
 });
-DialogContent.displayName = DialogPrimitive.Content.displayName;
+DrawerContent.displayName = "DrawerContent";
 
-const DialogHeader = ({
+const DrawerHeader = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
@@ -117,18 +117,18 @@ const DialogHeader = ({
       {...props}
     >
       <div className="w-full">{props.children}</div>
-      <DialogPrimitive.Close className="bg-transparent">
+      <DrawerClose className="bg-transparent">
         <Button animated variant="accent" size="icon" title="Close">
           <X className="h-4 w-4" />
           <span className="sr-only">Close</span>
         </Button>
-      </DialogPrimitive.Close>
+      </DrawerClose>
     </div>
   );
 };
-DialogHeader.displayName = "DialogHeader";
+DrawerHeader.displayName = "DrawerHeader";
 
-const DialogFooter = ({
+const DrawerFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
@@ -157,7 +157,7 @@ const DialogFooter = ({
   return (
     <div
       className={cn(
-        "fixed backdrop-blur-lg bg-primary/20 p-4 rounded-t-none rounded-b-[20px] justify-end gap-2 bottom-0 left-0 right-0 outline-1 outline outline-primary/10 flex flex-col-reverse",
+        "fixed backdrop-blur-lg bg-primary/20 p-4 rounded-t-none justify-end gap-2 bottom-0 left-0 right-0 outline-1 outline outline-primary/10 flex flex-col-reverse",
         className,
       )}
       style={{
@@ -172,44 +172,47 @@ const DialogFooter = ({
     />
   );
 };
-DialogFooter.displayName = "DialogFooter";
+DrawerFooter.displayName = "DrawerFooter";
 
-const DialogTitle = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+const DrawerTitle = React.forwardRef<
+  React.ElementRef<typeof DrawerPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Title
-    ref={ref}
-    className={cn(
-      "flex flex-row ml-2 mb-0 text-base font-semibold leading-none tracking-tight text-center",
-      className,
-    )}
-    {...props}
-  />
+  <div>
+    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 mt-[30px] h-2 w-[80px] rounded-full bg-accent" />
+    <DrawerPrimitive.Title
+      ref={ref}
+      className={cn(
+        "flex flex-row ml-2 mb-0 text-base font-semibold leading-none tracking-tight text-center",
+        className,
+      )}
+      {...props}
+    />
+  </div>
 ));
-DialogTitle.displayName = DialogPrimitive.Title.displayName;
+DrawerTitle.displayName = DrawerPrimitive.Title.displayName;
 
-const DialogDescription = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+const DrawerDescription = React.forwardRef<
+  React.ElementRef<typeof DrawerPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Description
+  <DrawerPrimitive.Description
     ref={ref}
     className={cn("text-sm text-muted-foreground", className)}
     {...props}
   />
 ));
-DialogDescription.displayName = DialogPrimitive.Description.displayName;
+DrawerDescription.displayName = DrawerPrimitive.Description.displayName;
 
 export {
-  Dialog,
-  DialogPortal,
-  DialogOverlay,
-  DialogClose,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
-  DialogDescription,
+  Drawer,
+  DrawerPortal,
+  DrawerOverlay,
+  DrawerTrigger,
+  DrawerClose,
+  DrawerContent,
+  DrawerHeader,
+  DrawerFooter,
+  DrawerTitle,
+  DrawerDescription,
 };

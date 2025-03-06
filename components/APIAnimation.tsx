@@ -5,7 +5,6 @@ import {
   Building,
   LayoutTemplate,
   Ticket,
-  PanelsTopLeft,
   Store,
   Landmark,
   SquareLibrary,
