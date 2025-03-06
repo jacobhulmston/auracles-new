@@ -1,13 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { UserRound, Newspaper, ArrowRightIcon, Mail } from "lucide-react";
 import { AuraclesIcon } from "@/components/icons/auracles-icon";
 import { Discord } from "@/components/icons/discord";
+import { ContactForm } from "@/components/ContactForm";
 
 export function Nav() {
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+
   return (
     <nav className="mx-auto flex justify-center w-full select-none p-4 sm:p-8">
+      <ContactForm
+        isOpen={isContactFormOpen}
+        onOpenChange={setIsContactFormOpen}
+      />
       <div className="flex flex-row justify-between items-center text-sm w-full">
         <div className="w-1/3">
           <Button
@@ -53,20 +61,16 @@ export function Nav() {
 
         <div className="w-1/3 flex justify-end gap-x-4">
           <div className="relative flex flex-row gap-2 opacity-70">
-            <a
-              href="mailto:hello@auracles.io"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Button
+              animated
+              variant="ghost"
+              size="icon"
+              className="relative hidden sm:flex"
+              onClick={() => setIsContactFormOpen(true)}
             >
-              <Button
-                animated
-                variant="ghost"
-                size="icon"
-                className="relative hidden sm:flex"
-              >
-                <Mail strokeWidth="2.5" className="h-5 w-5" />
-              </Button>
-            </a>
+              <Mail strokeWidth="2.5" className="h-5 w-5" />
+            </Button>
+
             <a
               href="https://discord.gg/vWYQTSKngE"
               target="_blank"

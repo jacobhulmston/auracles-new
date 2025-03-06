@@ -117,7 +117,7 @@ const DialogHeader = ({
       {...props}
     >
       <div className="w-full">{props.children}</div>
-      <DialogPrimitive.Close className="bg-transparent">
+      <DialogPrimitive.Close asChild>
         <Button animated variant="accent" size="icon" title="Close">
           <X className="h-4 w-4" />
           <span className="sr-only">Close</span>
