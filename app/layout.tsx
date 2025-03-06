@@ -6,6 +6,7 @@ import { Footer } from "./footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { ErrorBoundary } from "./error-boundary";
+import { Nav } from "@/components/Nav";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,7 +22,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: "Auracles",
   description:
-    "Auracles are ‘The Everything of Something’. Based on the physical concept of auras, an Auracle is a place for everything surrounding a person or a thing.",
+    "Auracles are 'The Everything of Something'. Based on the physical concept of auras, an Auracle is a place for everything surrounding a person or a thing.",
 };
 
 export default function RootLayout({
@@ -30,11 +31,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className=" bg-background">
       <body
-        className={`${inter.variable} ${instrumentSerif.variable} antialiased flex flex-col min-h-screen text-foreground bg-background`}
+        className={`${inter.variable} ${instrumentSerif.variable} antialiased flex flex-col min-h-screen text-foreground bg-no-repeat bg-cover bg-fixed bg-gradient-to-t from-[hsl(var(--backgroundsaturated)/0.3)] from-[56%] via-[hsl(var(--backgroundsaturated)/0.31)] via-[84.5%] to-[hsl(var(--backgroundsaturated))] to-[100%]`}
       >
         <ErrorBoundary>
+          <Nav />
           <main className="flex flex-col items-center justify-center flex-grow">
             {children}
           </main>
