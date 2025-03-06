@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { UserRound, Newspaper, ArrowRightIcon, Newsletter } from "lucide-react";
+import { UserRound, Newspaper, ArrowRightIcon, Mails } from "lucide-react";
 import { AuraclesIcon } from "@/components/icons/auracles-icon";
 import { Discord } from "@/components/icons/discord";
 import { ContactForm } from "@/components/ContactForm";
@@ -68,7 +68,7 @@ export function Nav() {
               className="relative hidden sm:flex"
               onClick={() => setIsContactFormOpen(true)}
             >
-              <Newsletter strokeWidth="2.5" className="h-5 w-5" />
+              <Mails strokeWidth="2.5" className="h-5 w-5" />
             </Button>
 
             <a

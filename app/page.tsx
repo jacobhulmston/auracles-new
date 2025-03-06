@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CircleFadingPlus, Newspaper, LogIn, Mail } from "lucide-react";
+import { CircleFadingPlus, Mails, LogIn, Send } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { FeatureBento } from "@/components/FeatureBento";
@@ -185,7 +185,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   <Button variant="accent" animated size="xl" className="gap-2">
-                    <Mail strokeWidth="2.25" className="h-5 w-5" />
+                    <Send strokeWidth="2.25" className="h-5 w-5" />
                     Contact Us
                   </Button>
                 </a>
@@ -197,7 +197,7 @@ export default function Home() {
                   className="gap-2"
                   onClick={() => setIsContactFormOpen(true)}
                 >
-                  <Newspaper strokeWidth="2.25" className="h-5 w-5" />
+                  <Mails strokeWidth="2.25" className="h-5 w-5" />
                   Newsletter
                 </Button>
               </div>
