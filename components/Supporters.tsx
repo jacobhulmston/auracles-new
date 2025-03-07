@@ -49,8 +49,8 @@ export function Supporters() {
               </div>
             ))}
           </Marquee>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 sm:w-64 bg-gradient-to-r from-[#f0e9e3] sm:from-[#f7f2ef] to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 sm:w-64 bg-gradient-to-l from-[#f0e9e3] sm:from-[#f7f2ef] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 sm:w-64 bg-gradient-to-r from-[#eee4dc] sm:from-[#f4ede5] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 sm:w-64 bg-gradient-to-l from-[#eee4dc] sm:from-[#f4ede5] to-transparent z-10" />
         </div>
       </div>
     </div>
