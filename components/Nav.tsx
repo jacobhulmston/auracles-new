@@ -46,7 +46,7 @@ export function Nav() {
                   Blog post
                 </div>
                 <span className="font-semibold">
-                  Act now, before AI Acts up!
+                  Act now, before AI acts up!
                 </span>
               </span>
               <div className="flex sm:hidden flex-row items-center">

@@ -22,7 +22,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: "Auracles",
   description:
-    "Auracles are 'The Everything of Something'. Based on the physical concept of auras, an Auracle is a place for everything surrounding a person or a thing.",
+    "The missing digital foundation layer for music. A verified digital ID with an information and permissions source for musicmakers, services, and representatives.",
 };
 
 export default function RootLayout({
