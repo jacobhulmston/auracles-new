@@ -75,7 +75,7 @@ export default function Home() {
           </div>
           <div className="w-full max-w-[1200px] aspect-[16/10] relative">
             <Image
-              src="/app-screenshot-6.png"
+              src="/app-screenshot-7.png"
               alt="Auracles browser window screenshot"
               fill
               className="object-cover rounded-[20px]"
@@ -114,7 +114,7 @@ export default function Home() {
             variants={fadeInUpVariants}
             className="text-center"
           >
-            <h2 className="text-sm font-bold mb-4 text-foreground p-2 bg-accent rounded-lg w-fit mx-auto">
+            <h2 className="text-sm font-bold mb-4 text-foreground p-2 bg-[#f0ebe5] rounded-lg w-fit mx-auto">
               ACT BEFORE AI ACTS UP
             </h2>
             <p className="text-foreground text-xl sm:text-2xl max-w-2xl mx-auto font-bold text-balance">

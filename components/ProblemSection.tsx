@@ -46,9 +46,9 @@ export function ProblemSection() {
         <h2 className="text-foreground text-sm font-bold mb-4 text-red-900 p-2 bg-red-300/30 rounded-lg w-fit mx-auto">
           THE PROBLEM
         </h2>
-        <p className="text-foreground text-xl sm:text-2xl max-w-2xl mx-auto font-bold text-balance">
-          Technology has transformed the way we consume art, but advances in AI
-          have proven that data & rights management{" "}
+        <p className="text-foreground text-xl sm:text-2xl max-w-2xl mx-auto font-bold text-pretty">
+          Technology has transformed the way we interact with art, but advances
+          in AI have proven that data & rights management{" "}
           <span className="font-extrabold">urgently</span> needs fixing before
           the music industry falls behind.
         </p>

@@ -45,14 +45,16 @@ export function Nav() {
                   <Newspaper className="inline-block mr-1.5 size-4" />
                   Blog post
                 </div>
-                <span className="font-semibold">Introducing AI opt-out</span>
+                <span className="font-semibold">
+                  Act now, before AI Acts up!
+                </span>
               </span>
               <div className="flex sm:hidden flex-row items-center">
                 <div className="bg-accent rounded-full py-1 px-2 font-semibold mr-1">
                   <Newspaper className="inline-block mr-1.5 size-4" />
                   Blog post
                 </div>
-                <span className="font-semibold">AI opt-out</span>
+                <span className="font-semibold">Act on AI now</span>
               </div>
               <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
             </Button>

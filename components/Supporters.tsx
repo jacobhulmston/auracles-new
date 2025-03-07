@@ -32,7 +32,7 @@ const supporters: Supporter[] = [
 
 export function Supporters() {
   return (
-    <div className="relative -mx-[50vw] left-[50%] right-[50%] w-screen bg-[#f7f2ef] py-8">
+    <div className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-0 sm:py-8">
       <div className="mx-auto max-w-7xl px-6">
         <p className="mb-4 text-center text-sm font-medium text-muted-foreground">
           Supported by
@@ -49,8 +49,8 @@ export function Supporters() {
               </div>
             ))}
           </Marquee>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 sm:w-64 bg-gradient-to-r from-[#f7f2ef] sm:via-[#f7f2ef] to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 sm:w-64 bg-gradient-to-l from-[#f7f2ef] sm:via-[#f7f2ef] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 sm:w-64 bg-gradient-to-r from-[#f0e9e3] sm:from-[#f7f2ef] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 sm:w-64 bg-gradient-to-l from-[#f0e9e3] sm:from-[#f7f2ef] to-transparent z-10" />
         </div>
       </div>
     </div>
