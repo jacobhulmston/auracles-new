@@ -31,7 +31,7 @@ export function Nav() {
         <div className="flex justify-center w-1/3">
           <Magnetic>
             <a
-              href="https://medium.com/@imogenheap"
+              href="https://medium.com/p/e5cb3a6a610a"
               target="_blank"
               rel="noopener noreferrer"
             >
