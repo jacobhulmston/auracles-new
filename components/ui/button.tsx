@@ -2,9 +2,9 @@ import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-medium transition-colors focus-visible:outline-none disabled:cursor-not-allowed touch-manipulation",
@@ -22,10 +22,10 @@ const buttonVariants = cva(
         accent:
           "disabled:opacity-50 disabled:hover:bg-accent disabled:active:bg-accent bg-accent hover:bg-accent-hover active:bg-accent-active text-accent-foreground shadow-sm hover:text-accent-foreground",
         ghost:
-          "disabled:opacity-50 hover:bg-foreground/15 active:bg-foreground/30 hover:text-accent-foreground",
+          "bg-transparent disabled:opacity-50 hover:bg-foreground/15 active:bg-foreground/30 hover:text-accent-foreground",
         link: "disabled:opacity-50 text-primary underline-offset-4 hover:underline",
         toggle:
-          "disabled:hover:bg-secondary disabled:active:bg-secondary border border-secondary-foreground hover:border-transparent hover:bg-secondary-foreground hover:bg-secondary-foreground/20 hover:text-secondary-foreground text-secondary-foreground",
+          "disabled:hover:bg-secondary bg-transparent disabled:active:bg-secondary border border-solid border-secondary-foreground hover:border-transparent hover:bg-secondary-foreground hover:bg-secondary-foreground/20 hover:text-secondary-foreground text-secondary-foreground",
         activeToggle:
           "border border-secondary-foreground hover:border-transparent hover:brightness-90 bg-secondary-foreground text-secondary",
       },
@@ -55,7 +55,15 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, variant, size, asChild = false, animated = false, ...props },
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      animated = false,
+      disabled,
+      ...props
+    },
     ref,
   ) => {
     const Comp = asChild ? Slot : "button";
@@ -63,11 +71,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        disabled={disabled}
         {...props}
       />
     );
 
-    return animated ? (
+    return animated && !disabled ? (
       <motion.div
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}

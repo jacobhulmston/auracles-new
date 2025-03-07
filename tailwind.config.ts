@@ -30,6 +30,7 @@ const config = {
     },
     extend: {
       fontFamily: {
+        sans: ["Inter", "sans-serif"],
         rounded: ["OpenRunde", "sans-serif"],
       },
       backgroundImage: {
@@ -63,7 +64,7 @@ const config = {
           foreground: "hsl(var(--secondary-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
+          DEFAULT: "hsl(var(--accent) / 0.1)",
           hover: "hsl(var(--accent-hover) / 0.2)",
           active: "hsl(var(--accent-active) / 0.3)",
           foreground: "hsl(var(--accent-foreground))",
@@ -81,7 +82,7 @@ const config = {
           foreground: "hsl(var(--popover-foreground))",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
+          DEFAULT: "hsl(var(--card) / 0.6)",
           foreground: "hsl(var(--card-foreground))",
         },
         cherry: {
@@ -138,10 +139,28 @@ const config = {
             height: "0",
           },
         },
+        marquee: {
+          from: {
+            transform: "translateX(0)",
+          },
+          to: {
+            transform: "translateX(calc(-100% - var(--gap)))",
+          },
+        },
+        "marquee-vertical": {
+          from: {
+            transform: "translateY(0)",
+          },
+          to: {
+            transform: "translateY(calc(-100% - var(--gap)))",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        marquee: "marquee var(--duration) infinite linear",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
     },
   },

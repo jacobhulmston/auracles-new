@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Play, XIcon } from "lucide-react";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
@@ -91,7 +92,7 @@ export default function HeroVideoDialog({
         className="relative cursor-pointer group"
         onClick={() => setIsVideoOpen(true)}
       >
-        <img
+        <Image
           src={thumbnailSrc}
           alt={thumbnailAlt}
           width={1920}
