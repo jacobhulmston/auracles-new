@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CircleFadingPlus, Mails, LogIn, Send } from "lucide-react";
-import Image from "next/image";
+import { CircleFadingPlus, Mails, LogIn, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FeatureBento } from "@/components/FeatureBento";
 import { CirclesBackground } from "@/components/CirclesBackground";
@@ -11,9 +10,12 @@ import { ProblemSection } from "@/components/ProblemSection";
 import { Supporters } from "@/components/Supporters";
 import { AuracleBorder } from "@/components/AuracleBorder";
 import { ContactForm } from "@/components/ContactForm";
+import { Safari } from "@/components/magicui/safari";
+import { CoolMode } from "@/components/magicui/cool-mode";
 
 export default function Home() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [isCreateLoading, setIsCreateLoading] = useState(false);
 
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -24,6 +26,57 @@ export default function Home() {
         duration: 0.5,
       },
     },
+  };
+
+  // Hero section animation variants with staggered children
+  const heroContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const heroItemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.1, 0.25, 1.0], // Custom easing for a more natural feel
+      },
+    },
+  };
+
+  const safariVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.98 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1.0],
+        delay: 0.6, // Delay the Safari animation to appear after text elements
+      },
+    },
+  };
+
+  const handleCreateClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsCreateLoading(true);
+
+    setTimeout(() => {
+      setIsCreateLoading(false);
+      // Navigate to the URL directly using the anchor's href
+      window.location.href = "https://id.auracles.io";
+    }, 1000);
   };
 
   return (
@@ -39,25 +92,54 @@ export default function Home() {
       </section>
       <div className="max-w-screen-lg space-y-16">
         <section className="flex flex-col items-center justify-center relative">
-          <div className="flex flex-col items-center justify-between h-full py-20 mx-auto relative max-w-lg gap-6">
-            <p className="text-foreground w-full font-bold sm:font-semibold text-4xl sm:text-6xl text-center text-balance">
+          <motion.div
+            className="flex flex-col items-center justify-between h-full py-20 mx-auto relative max-w-lg gap-6"
+            initial="hidden"
+            animate="visible"
+            variants={heroContainerVariants}
+          >
+            <motion.p
+              className="text-foreground w-full font-bold sm:font-semibold text-4xl sm:text-6xl text-center text-balance"
+              variants={heroItemVariants}
+            >
               The missing digital foundation layer for music
-            </p>
-            <p className="text-foreground w-full font-medium text-md sm:text-xl text-center text-balance">
+            </motion.p>
+            <motion.p
+              className="text-foreground w-full font-medium text-md sm:text-xl text-center text-balance"
+              variants={heroItemVariants}
+            >
               A verified digital ID with an information and permissions source
               for musicmakers, services, and representatives.
-            </p>
-            <div className="flex flex-row gap-4">
-              <a
-                href="https://id.auracles.io"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="gradient" animated size="xl" className="gap-2">
-                  <CircleFadingPlus strokeWidth="2.25" className="h-5 w-5" />
-                  Create an Auracle ID
-                </Button>
-              </a>
+            </motion.p>
+            <motion.div
+              className="flex flex-row gap-4"
+              variants={heroItemVariants}
+            >
+              <CoolMode>
+                <a href="https://id.auracles.io" onClick={handleCreateClick}>
+                  <Button
+                    variant="gradient"
+                    animated
+                    size="xl"
+                    className="gap-2"
+                    disabled={isCreateLoading}
+                  >
+                    {isCreateLoading ? (
+                      <Loader2
+                        strokeWidth="2.25"
+                        className="h-5 w-5 animate-spin"
+                      />
+                    ) : (
+                      <CircleFadingPlus
+                        strokeWidth="2.25"
+                        className="h-5 w-5"
+                      />
+                    )}
+                    Create an Auracle ID
+                  </Button>
+                </a>
+              </CoolMode>
+
               <a
                 href="https://id.auracles.io"
                 target="_blank"
@@ -68,20 +150,26 @@ export default function Home() {
                   Sign in
                 </Button>
               </a>
-            </div>
-            <p className="text-sm opacity-50 font-medium text-center">
+            </motion.div>
+            <motion.p
+              className="text-sm opacity-50 font-medium text-center"
+              variants={heroItemVariants}
+            >
               Founded by Imogen Heap
-            </p>
-          </div>
-          <div className="w-full max-w-[1200px] aspect-[16/10] relative">
-            <Image
-              src="/app-screenshot-7.png"
-              alt="Auracles browser window screenshot"
-              fill
-              className="object-cover rounded-[20px]"
-              priority
+            </motion.p>
+          </motion.div>
+          <motion.div
+            className="w-full relative"
+            initial="hidden"
+            animate="visible"
+            variants={safariVariants}
+          >
+            <Safari
+              url="auracles.io"
+              className="size-full"
+              imageSrc="/app-screenshot-7.png"
             />
-          </div>
+          </motion.div>
         </section>
         <Supporters />
         <ProblemSection />
@@ -149,16 +237,30 @@ export default function Home() {
                 and create ones for each of their works. All ready to populate
                 with detailed metadata points and permissions.
               </p>
-              <a
-                href="https://id.auracles.io"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="gradient" animated size="xl" className="gap-2">
-                  <CircleFadingPlus strokeWidth="2.25" className="h-5 w-5" />
-                  Create an Auracle ID
-                </Button>
-              </a>
+              <CoolMode>
+                <a href="https://id.auracles.io" onClick={handleCreateClick}>
+                  <Button
+                    variant="gradient"
+                    animated
+                    size="xl"
+                    className="gap-2"
+                    disabled={isCreateLoading}
+                  >
+                    {isCreateLoading ? (
+                      <Loader2
+                        strokeWidth="2.25"
+                        className="h-5 w-5 animate-spin"
+                      />
+                    ) : (
+                      <CircleFadingPlus
+                        strokeWidth="2.25"
+                        className="h-5 w-5"
+                      />
+                    )}
+                    Create an Auracle ID
+                  </Button>
+                </a>
+              </CoolMode>
             </motion.div>
           </section>
           <section className="p-10 sm:p-16 flex flex-col items-center text-center justify-center relative mx-auto bg-accent/5 rounded-[20px]">

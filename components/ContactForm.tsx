@@ -11,6 +11,7 @@ import {
   CredenzaHeader,
   CredenzaTitle,
 } from "@/components/ui/credenza";
+import { CoolMode } from "@/components/magicui/cool-mode";
 
 interface ContactFormProps {
   isOpen: boolean;
@@ -167,18 +168,19 @@ export function ContactForm({ isOpen, onOpenChange }: ContactFormProps) {
                   </div>
                 </div>
               </div>
-
-              <Button
-                animated
-                variant="gradient"
-                type="submit"
-                size="lg"
-                className="w-full gap-2"
-                disabled={isLoading}
-              >
-                <Send className="h-4 w-4" />
-                {isLoading ? "Subscribing..." : "Subscribe"}
-              </Button>
+              <CoolMode>
+                <Button
+                  animated
+                  variant="gradient"
+                  type="submit"
+                  size="lg"
+                  className="w-full gap-2"
+                  disabled={isLoading}
+                >
+                  <Send className="h-4 w-4" />
+                  {isLoading ? "Subscribing..." : "Subscribe"}
+                </Button>
+              </CoolMode>
             </form>
           )}
         </div>
