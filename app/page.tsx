@@ -75,7 +75,7 @@ export default function Home() {
     setTimeout(() => {
       setIsCreateLoading(false);
       // Navigate to the URL directly using the anchor's href
-      window.location.href = "https://id.auracles.io";
+      window.location.href = "https://id.auracles.io?register";
     }, 1000);
   };
 
@@ -116,7 +116,10 @@ export default function Home() {
               variants={heroItemVariants}
             >
               <CoolMode>
-                <a href="https://id.auracles.io" onClick={handleCreateClick}>
+                <a
+                  href="https://id.auracles.io?register"
+                  onClick={handleCreateClick}
+                >
                   <Button
                     variant="gradient"
                     animated
@@ -141,7 +144,7 @@ export default function Home() {
               </CoolMode>
 
               <a
-                href="https://id.auracles.io"
+                href="https://id.auracles.io?login"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -238,7 +241,10 @@ export default function Home() {
                 with detailed metadata points and permissions.
               </p>
               <CoolMode>
-                <a href="https://id.auracles.io" onClick={handleCreateClick}>
+                <a
+                  href="https://id.auracles.io?register"
+                  onClick={handleCreateClick}
+                >
                   <Button
                     variant="gradient"
                     animated
