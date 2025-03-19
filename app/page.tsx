@@ -102,14 +102,15 @@ export default function Home() {
               className="text-foreground w-full font-bold sm:font-semibold text-4xl sm:text-6xl text-center text-balance"
               variants={heroItemVariants}
             >
-              The missing digital foundation layer for music
+              The missing foundational data layer for music
             </motion.p>
             <motion.p
               className="text-foreground w-full font-medium text-md sm:text-xl text-center text-balance"
               variants={heroItemVariants}
             >
-              A verified digital ID with an information and permissions source
-              for musicmakers, services, and representatives.
+              Enabling musicmakers &#38; representatives to create a verified
+              digital ID, streamline their data, and grant permissions for
+              approved use of works.
             </motion.p>
             <motion.div
               className="flex flex-row gap-4"
