@@ -135,6 +135,7 @@ export function Nav() {
                             {post.title}
                           </h3>
                           <p className="text-sm text-muted-foreground leading-relaxed">
+                            {post.description}
                           </p>
                           <p className="text-xs text-muted-foreground opacity-70">
                             {post.date}
