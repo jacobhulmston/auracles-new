@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import {
   UserRound,
   Newspaper,
-  ArrowRightIcon,
   Mails,
   ChevronDown,
   ExternalLink,
