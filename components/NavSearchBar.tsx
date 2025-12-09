@@ -107,7 +107,7 @@ export function NavSearchBar() {
         stiffness: 300,
         damping: 30,
       }}
-      className="justify-center grow max-w-lg mx-4 hidden sm:flex"
+      className="justify-center grow max-w-lg mx-4"
     >
       <motion.div
         whileHover={{ scale: 1.02 }}

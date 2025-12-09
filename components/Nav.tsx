@@ -32,7 +32,7 @@ export function Nav() {
           </Button>
         </div>
 
-        <div className="flex justify-center w-1/3 relative z-50">
+        <div className="flex justify-center sm:w-1/3 relative z-50">
           <NavSearchBar />
         </div>
 
