@@ -34,8 +34,8 @@ export function Supporters() {
   return (
     <div className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-0 sm:py-8">
       <div className="mx-auto max-w-7xl px-6">
-        <p className="mb-4 text-center text-sm font-medium text-muted-foreground">
-          Supported by
+        <p className="mb-4 text-center text-sm font-medium text-foreground">
+          Founded by Imogen Heap. Supported by:
         </p>
         <div className="relative overflow-hidden">
           <Marquee className="py-4 [--duration:40s]" repeat={5}>

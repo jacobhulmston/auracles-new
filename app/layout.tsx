@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Instrument_Serif } from "next/font/google";
+import { Inter, Instrument_Serif } from "next/font/google";
+import "@fontsource/special-gothic-expanded-one";
 import "./globals.css";
 import { Footer } from "./footer";
 import { GoogleAnalytics } from "@next/third-parties/google";

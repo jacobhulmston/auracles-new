@@ -387,6 +387,10 @@
   .font-instrument-serif {
     font-family: var(--font-instrument-serif);
   }
+
+  .font-special-gothic {
+    font-family: "Special Gothic Expanded One", sans-serif;
+  }
 }
 
 .circlecontainer {
