@@ -5,10 +5,9 @@ import { motion } from "framer-motion";
 import { CircleFadingPlus, LogIn, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FeatureBento } from "@/components/FeatureBento";
-import { AuraclesIcon } from "@/components/icons/auracles-icon";
-import { SoundCloudIcon } from "@/components/icons/soundcloud";
 import { CoolMode } from "@/components/magicui/cool-mode";
 import { Loader2 } from "lucide-react";
+import Image from "next/image";
 
 export default function SoundCloudPage() {
   const [isCreateLoading, setIsCreateLoading] = useState(false);
@@ -68,7 +67,7 @@ export default function SoundCloudPage() {
     <div className="relative px-6 overflow-x-clip w-full flex flex-col items-center justify-center">
       {/* Decorative background gradient */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-[#ff5500]/10 via-primary/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-[#ff5500]/80 via-primary/5 to-transparent rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-screen-lg space-y-24 py-16 sm:py-24">
@@ -85,23 +84,28 @@ export default function SoundCloudPage() {
               className="flex flex-row items-center justify-center gap-4 sm:gap-6"
               variants={heroItemVariants}
             >
-              <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-foreground/5 border border-foreground/10">
-                <AuraclesIcon className="w-8 h-8 sm:w-10 sm:h-10 text-foreground" />
-              </div>
-              <span className="text-3xl sm:text-4xl font-light text-foreground/30">
-                ×
-              </span>
-              <div className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#ff5500]/10 border border-[#ff5500]/20">
-                <SoundCloudIcon className="w-8 h-8 sm:w-10 sm:h-10 text-[#ff5500]" />
-              </div>
+              <Image
+                src="/auracles-soundcloud-stacked.png"
+                alt="Auracles and SoundCloud"
+                width={320}
+                height={160}
+                className="w-auto h-auto sm:hidden"
+              />
+              <Image
+                src="/auracles-soundcloud.png"
+                alt="Auracles and SoundCloud"
+                width={572}
+                height={68}
+                className="w-auto sm:w-[500px] h-auto hidden sm:block"
+              />
             </motion.div>
 
             {/* Caption */}
             <motion.h1
-              className="text-foreground w-full font-special-gothic text-3xl sm:text-5xl text-center text-balance leading-tight"
+              className="text-foreground w-full font-special-gothic text-4xl sm:text-5xl text-center text-balance leading-tight"
               variants={heroItemVariants}
             >
-              Auracles integrates with SoundCloud
+              Your home for music
             </motion.h1>
 
             {/* Detail paragraph */}
@@ -109,8 +113,8 @@ export default function SoundCloudPage() {
               className="text-foreground/80 w-full text-md sm:text-lg text-center text-balance max-w-xl"
               variants={heroItemVariants}
             >
-              Connect your SoundCloud account to your Auracle ID and one-export
-              sync your recordings, detailed metadata, and more coming soon.
+              Connect your SoundCloud account to your Auracle ID and one-click
+              export your recordings, detailed metadata, and more coming soon.
             </motion.p>
 
             {/* CTAs */}
@@ -144,9 +148,14 @@ export default function SoundCloudPage() {
               </CoolMode>
 
               <a href={keycloakLoginUrl} rel="noopener noreferrer">
-                <Button variant="accent" animated size="xl" className="gap-2">
+                <Button
+                  variant="accent"
+                  animated
+                  size="xl"
+                  className="gap-2 bg-[#ff5500] text-white hover:bg-[#d56300] hover:text-white"
+                >
                   <LogIn strokeWidth="2.25" className="h-5 w-5" />
-                  Sign in
+                  Connect now
                 </Button>
               </a>
             </motion.div>
