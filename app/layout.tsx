@@ -23,6 +23,14 @@ export const metadata: Metadata = {
   title: "Auracles",
   description:
     "The missing digital foundation layer for music. A verified digital ID with an information and permissions source for musicmakers, services, and representatives.",
+  themeColor: "#e2d1c8",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+  },
+  other: {
+    "apple-mobile-web-app-status-bar-background": "#e2d1c8",
+  },
 };
 
 export default function RootLayout({

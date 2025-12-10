@@ -22,7 +22,7 @@ export function Nav() {
         onOpenChange={setIsContactFormOpen}
       />
       <div className="flex flex-row justify-between items-center text-sm w-full">
-        <div className="w-1/3">
+        <div className="sm:w-1/3">
           <Button
             variant="ghost"
             className="gap-2.5 text-foreground opacity-70 px-2 pointer-events-none"
@@ -36,8 +36,8 @@ export function Nav() {
           <NavSearchBar />
         </div>
 
-        <div className="w-1/3 flex justify-end gap-x-4">
-          <div className="relative flex flex-row gap-2 opacity-70">
+        <div className="sm:w-1/3 flex justify-end gap-x-4">
+          <div className="relative flex flex-row sm:gap-2 opacity-70">
             <Button
               animated
               variant="ghost"

@@ -35,7 +35,7 @@ export function ProblemSection() {
   };
 
   return (
-    <section className="w-full max-w-7xl mx-auto p-10 sm:p-16 bg-red-300/20 rounded-[20px] space-y-12 shadow-sm">
+    <section className="w-full max-w-7xl mx-auto p-10 sm:p-16 bg-red-300/20 sm:rounded-[20px] space-y-12 shadow-sm">
       <motion.div
         initial="hidden"
         whileInView="visible"

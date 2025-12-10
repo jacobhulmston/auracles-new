@@ -257,7 +257,7 @@ function FeatureCard({
     <div
       ref={cardRef}
       className={cn(
-        "card relative overflow-hidden p-6 rounded-[20px]",
+        "card relative overflow-hidden p-6 sm:rounded-[20px]",
         feature.className,
       )}
       onMouseEnter={handleMouseEnter}

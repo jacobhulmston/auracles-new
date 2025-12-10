@@ -246,7 +246,7 @@ export default function Home() {
       <div className="max-w-screen-lg space-y-16">
         <section className="flex flex-col items-center justify-center relative">
           <motion.div
-            className="flex flex-col items-center justify-between h-full mt-10 mb-10 mx-auto relative max-w-lg gap-6"
+            className="px-8 sm:px-0 flex flex-col items-center justify-between h-full mt-10 mb-0 sm:mb-10 mx-auto relative max-w-lg gap-6"
             initial="hidden"
             animate="visible"
             variants={heroContainerVariants}
@@ -302,27 +302,29 @@ export default function Home() {
               </a>
             </motion.div>
             <motion.div
-              className="text-sm font-medium text-center flex flex-row items-center justify-center gap-1.5"
+              className="text-sm font-medium text-center flex sm:flex-row flex-col items-center justify-center gap-1.5"
               variants={heroItemVariants}
             >
               <span className="opacity-50">Dec 2025 article:</span>
-              <a
-                className="font-bold text-foreground hover:underline hover:decoration-dotted opacity-50"
-                href="https://medium.com/@imogenheap/what-do-musicians-do-about-genai-3ff458f955f0"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                What Do Musicians Do About GenAI?
-              </a>
-              <ExternalLink
-                strokeWidth="2.5"
-                className="size-3 text-foreground group-hover:text-foreground opacity-50"
-              />
+              <div className="flex flex-row items-center justify-center gap-1.5">
+                <a
+                  className="font-bold text-foreground hover:underline hover:decoration-dotted opacity-50"
+                  href="https://medium.com/@imogenheap/what-do-musicians-do-about-genai-3ff458f955f0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  What Do Musicians Do About GenAI?
+                </a>
+                <ExternalLink
+                  strokeWidth="2.5"
+                  className="size-3 text-foreground group-hover:text-foreground opacity-50"
+                />
+              </div>
             </motion.div>
           </motion.div>
           {/* Full-width carousel - breaks out of container */}
           <motion.div
-            className="relative mt-8"
+            className="relative"
             style={{ width: "100vw" }}
             initial="hidden"
             animate="visible"
@@ -509,7 +511,7 @@ export default function Home() {
         <Supporters />
         <ProblemSection />
         {/* <section className="sm:mt-16 mt-8 px-8 pt-10 sm:pt-16 flex flex-col items-center text-center justify-center relative mx-auto bg-gradient-to-b from-green-700/15 to-transparent rounded-t-[300px]">*/}
-        <section className="flex flex-col items-center text-center justify-center relative mx-auto">
+        <section className="flex flex-col items-center text-center justify-center relative mx-4 sm:mx-auto">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -526,10 +528,10 @@ export default function Home() {
             </p>
           </motion.div>
         </section>
-        <section className="">
+        <section className="mx-0 sm:mx-8 lg:mx-0">
           <FeatureBento />
         </section>
-        <section className="flex flex-col items-center text-center justify-center relative mx-auto">
+        <section className="flex flex-col items-center text-center justify-center relative mx-4 sm:mx-auto">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -545,20 +547,24 @@ export default function Home() {
             </p>
           </motion.div>
         </section>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <section className="p-10 sm:p-16 flex flex-col items-center text-center justify-center relative mx-auto bg-primary/30 rounded-[20px] overflow-hidden">
-            {/* Custom Dots Background */}
-            <div className="absolute inset-0 pointer-events-none">
-              <AuracleBorder />
-            </div>
-
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <section className="p-10 sm:p-16 flex flex-col items-center text-center justify-center relative mx-auto bg-primary/30 lg:rounded-[20px] overflow-hidden">
+            {/* Background Image */}
+            <Image
+              src="/circles-background.jpg"
+              alt=""
+              fill
+              className="object-cover blur-sm"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={false}
+            />
             {/* Content */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={fadeInUpVariants}
-              className="flex flex-col items-center justify-center gap-4"
+              className="flex flex-col items-center justify-center gap-4 relative z-10"
             >
               <h2 className="text-lg font-bold text-center text-balance mb-0 leading-none">
                 Create your Auracles.
@@ -598,7 +604,7 @@ export default function Home() {
               </CoolMode>
             </motion.div>
           </section>
-          <section className="p-10 sm:p-16 flex flex-col items-center text-center justify-center relative mx-auto bg-accent/5 rounded-[20px]">
+          <section className="p-10 sm:p-16 flex flex-col items-center text-center justify-center relative mx-auto bg-accent/5 lg:rounded-[20px]">
             <motion.div
               initial="hidden"
               whileInView="visible"

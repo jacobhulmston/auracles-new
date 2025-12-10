@@ -197,8 +197,11 @@ export default function SoundCloudPage() {
             className="flex flex-col items-center gap-6"
           >
             <p className="text-foreground/70 text-md sm:text-lg max-w-lg text-balance">
-              Discover how Auracles is building a future-proof data layer for
-              the music industry.
+              <span>
+                Building a future
+                <span className="hidden sm:inline">-</span>
+                proof data layer for the music industry.
+              </span>
             </p>
 
             <a
