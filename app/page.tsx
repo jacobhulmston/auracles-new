@@ -16,7 +16,6 @@ import { FeatureBento } from "@/components/FeatureBento";
 import { CirclesBackground } from "@/components/CirclesBackground";
 import { ProblemSection } from "@/components/ProblemSection";
 import { Supporters } from "@/components/Supporters";
-import { AuracleBorder } from "@/components/AuracleBorder";
 import { ContactForm } from "@/components/ContactForm";
 import { CoolMode } from "@/components/magicui/cool-mode";
 import Tilt from "react-parallax-tilt";
